@@ -8,36 +8,72 @@
   <link rel="stylesheet" href="css/md-research-member.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="header-left">
-        <a href="#" class="logo">
-          <img src="member/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
-        </a>
+  <!-- Header Wrapper -->
+  <div class="header-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="#" class="logo">
+            <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#">대학소개</a></li>
+            <li><a href="#">학사정보</a></li>
+            <li><a href="#">교육과정</a></li>
+            <li><a href="#" class="active">연구센터</a></li>
+            <li><a href="#">커뮤니티</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <button class="icon-btn" aria-label="검색">
+            <img src="share/search.png" alt="검색">
+          </button>
+          <button class="icon-btn" aria-label="언어 선택">
+            <img src="share/global.png" alt="언어">
+          </button>
+          <button class="icon-btn" aria-label="사용자">
+            <img src="share/user.png" alt="사용자">
+          </button>
+        </div>
       </div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="#">대학소개</a></li>
-          <li><a href="#">학사정보</a></li>
-          <li><a href="#">교육과정</a></li>
-          <li><a href="#" class="active">연구센터</a></li>
-          <li><a href="#">커뮤니티</a></li>
-        </ul>
-      </nav>
-      <div class="header-right">
-        <button class="icon-btn" aria-label="검색">
-          <img src="member/search.png" alt="검색">
-        </button>
-        <button class="icon-btn" aria-label="언어 선택">
-          <img src="member/global.png" alt="언어">
-        </button>
-        <button class="icon-btn" aria-label="사용자">
-          <img src="member/user.png" alt="사용자">
-        </button>
+    </header>
+    
+    <!-- Header Dropdown Menu -->
+    <div class="header-dropdown">
+      <div class="header-dropdown-inner">
+        <div class="dropdown-spacer"></div>
+        <div class="dropdown-menus">
+          <div class="dropdown-column">
+            <a href="#">마이크로디그리</a>
+            <a href="#">교육목표</a>
+            <a href="#">교수소개</a>
+            <a href="#">찾아오시는길</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">이수체계</a>
+            <a href="#">학사안내</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">추천학과</a>
+            <a href="#">교과소개</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">MD 연구센터</a>
+            <a href="#">SW 기초교육 연구센터</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">학생</a>
+            <a href="#">교원</a>
+            <a href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="dropdown-right-spacer"></div>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- Banner -->
   <section class="banner">
@@ -49,19 +85,19 @@
   <div class="tab-menu">
     <div class="tab-menu-inner">
       <div class="tab-home">
-        <img src="member/home.png" alt="홈">
+        <img src="share/home.png" alt="홈">
       </div>
       <div class="tab-item">
         <span>연구센터</span>
-        <img src="member/down.png" alt="선택" class="tab-arrow">
+        <img src="share/down.png" alt="선택" class="tab-arrow">
       </div>
       <div class="tab-item">
         <span>MD 연구센터</span>
-        <img src="member/down.png" alt="선택" class="tab-arrow">
+        <img src="share/down.png" alt="선택" class="tab-arrow">
       </div>
       <div class="tab-item">
         <span>구성원</span>
-        <img src="member/down.png" alt="선택" class="tab-arrow">
+        <img src="share/down.png" alt="선택" class="tab-arrow">
       </div>
     </div>
   </div>
@@ -329,15 +365,17 @@
           <a href="#">찾아오시는 길</a>
         </div>
         <div class="footer-select">
-          <select>
-            <option>관련사이트</option>
+          <select id="relatedSites">
+            <option value="">관련사이트</option>
+            <option value="https://www.shinhan.ac.kr">신한대학교</option>
+            <option value="https://stins.shinhan.ac.kr/irj/portal">종합정보시스템</option>
           </select>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <img src="member/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
         <div class="footer-info">
           <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학<br>대표전화 : 031-870-3710</p>
           <p class="copyright">COPYRIGHT 2019. SHINHAN UNIVERSITY. All rights reserved.</p>
@@ -348,17 +386,141 @@
 
   <!-- Quick Menu -->
   <div class="quick-menu">
-    <div class="quick-menu-inner">
-      <img src="member/trans.png" alt="Quick menu icon" class="quick-icon">
+    <div class="quick-menu-tab" id="quickMenuTab">
+      <img src="share/trans.png" alt="Quick menu icon" class="quick-icon">
       <span class="quick-text">Quick menu</span>
+    </div>
+    <div class="quick-menu-panel" id="quickMenuPanel">
+      <a href="https://www.shinhan.ac.kr" target="_blank" class="quick-menu-item">신한대학교</a>
+      <div class="quick-menu-divider"></div>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank" class="quick-menu-item">종합정보시스템</a>
+      <div class="quick-menu-divider"></div>
+      <a href="#" class="quick-menu-item">공지사항</a>
+      <div class="quick-menu-divider"></div>
+      <a href="#" class="quick-menu-item">FAQ</a>
     </div>
   </div>
 
   <!-- Top Button -->
-  <button class="top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    <img src="member/up_white.png" alt="위로 가기">
+  <button class="top-btn" id="topBtn">
+    <img src="share/up_white.png" alt="위로 가기">
   </button>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <div class="search-header">
+        <h2 class="search-title">통합검색</h2>
+        <button class="search-close-btn" id="searchCloseBtn">
+          <img src="share/close.png" alt="닫기">
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <input type="text" class="search-input" placeholder="검색어를 입력해주세요">
+        <button class="search-submit-btn">
+          <img src="share/search_blue.png" alt="검색">
+        </button>
+      </div>
+      <div class="search-keywords">
+        <h3 class="search-keywords-title">추천 검색어</h3>
+        <div class="search-tags">
+          <a href="#" class="search-tag"># 졸업요건</a>
+          <a href="#" class="search-tag"># 학과별 추천</a>
+          <a href="#" class="search-tag"># 과목 소개</a>
+          <a href="#" class="search-tag"># 마이크로디그리란?</a>
+          <a href="#" class="search-tag"># 신청방법</a>
+          <a href="#" class="search-tag"># FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 드롭다운 hover 시 헤더 메뉴 색상 및 밑줄 변경
+    const dropdownColumns = document.querySelectorAll('.dropdown-column');
+    const navItems = document.querySelectorAll('.nav-list li');
+    
+    dropdownColumns.forEach((column, index) => {
+      column.addEventListener('mouseenter', () => {
+        navItems[index].classList.add('dropdown-hover');
+      });
+      
+      column.addEventListener('mouseleave', () => {
+        navItems[index].classList.remove('dropdown-hover');
+      });
+    });
+    
+    // 검색 모달
+    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
+    const searchModal = document.getElementById('searchModal');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+    const searchInput = document.querySelector('.search-input');
+    
+    // 검색 버튼 클릭 시 모달 열기
+    searchBtn.addEventListener('click', () => {
+      searchModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    // 닫기 버튼 클릭 시 모달 닫기
+    searchCloseBtn.addEventListener('click', () => {
+      searchModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // 모달 배경 클릭 시 닫기
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // 탑버튼 클릭
+    const topBtn = document.getElementById('topBtn');
+    topBtn.addEventListener('click', () => {
+      topBtn.classList.add('clicked');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      
+      // 500ms 후 색상 복원
+      setTimeout(() => {
+        topBtn.classList.remove('clicked');
+      }, 500);
+    });
+    
+    // 퀵메뉴 토글
+    const quickMenu = document.querySelector('.quick-menu');
+    const quickMenuTab = document.getElementById('quickMenuTab');
+    
+    quickMenuTab.addEventListener('click', () => {
+      quickMenu.classList.toggle('active');
+    });
+    
+    // 퀵메뉴 외부 클릭 시 닫기
+    document.addEventListener('click', (e) => {
+      if (!quickMenu.contains(e.target) && quickMenu.classList.contains('active')) {
+        quickMenu.classList.remove('active');
+      }
+    });
+    
+    // 관련사이트 드롭다운
+    const relatedSites = document.getElementById('relatedSites');
+    relatedSites.addEventListener('change', (e) => {
+      const url = e.target.value;
+      if (url) {
+        window.open(url, '_blank');
+        e.target.value = ''; // 선택 초기화
+      }
+    });
+  </script>
 </body>
 </html>
-
-
