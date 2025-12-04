@@ -90,7 +90,7 @@ img {
 .nav-list li::after {
   content: '';
   position: absolute;
-  bottom: -30px;
+  bottom: -1px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -545,7 +545,7 @@ img {
   display: flex;
 }
 
-.quick-menu-tab {
+.quick-menu-toggle {
   width: 50px;
   height: 350px;
   background-color: #00436b;
@@ -560,12 +560,12 @@ img {
   flex-shrink: 0;
 }
 
-.quick-icon {
+.swap-icon {
   width: 24px;
   height: 24px;
 }
 
-.quick-text {
+.quick-menu-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-size: 16px;
@@ -587,26 +587,22 @@ img {
   margin-left: -1px;
 }
 
-.quick-menu-panel a,
-.quick-menu-panel .quick-menu-item,
-.quick-menu-panel .quick-menu-divider {
+.quick-menu-panel a {
   opacity: 0;
   transition: opacity 0.15s ease;
 }
 
-.quick-menu.active .quick-menu-panel {
+.quick-menu.open .quick-menu-panel {
   width: 180px;
   padding: 0 10px;
 }
 
-.quick-menu.active .quick-menu-panel a,
-.quick-menu.active .quick-menu-panel .quick-menu-item,
-.quick-menu.active .quick-menu-panel .quick-menu-divider {
+.quick-menu.open .quick-menu-panel a {
   opacity: 1;
   transition: opacity 0.15s ease 0.15s;
 }
 
-.quick-menu-item {
+.quick-menu-panel a {
   width: 159px;
   height: 87.5px;
   display: flex;
@@ -618,16 +614,15 @@ img {
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.quick-menu-item:hover {
+.quick-menu-panel a:last-child {
+  border-bottom: none;
+}
+
+.quick-menu-panel a:hover {
   text-decoration: underline;
-}
-
-.quick-menu-divider {
-  width: 159px;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Top Button */
@@ -648,7 +643,7 @@ img {
   transition: background-color 0.3s ease;
 }
 
-.top-btn.clicked {
+.top-btn.active {
   background-color: #1977C9;
 }
 
@@ -776,7 +771,8 @@ img {
 
 .search-tags {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .search-tag {
@@ -797,7 +793,7 @@ img {
 /* Responsive Adjustments */
 @media (max-width: 1400px) {
   .header-inner {
-    padding: 30px 80px;
+    padding: 0 80px;
   }
   
   .header-dropdown-inner {
@@ -805,7 +801,7 @@ img {
   }
   
   .nav-list li {
-    padding: 20px 40px;
+    padding: 0 40px;
   }
   
   .dropdown-spacer {
@@ -829,11 +825,15 @@ img {
   .members-grid {
     padding: 0 20px;
   }
+  
+  .tab-menu-inner {
+    padding-left: 160px;
+  }
 }
 
 @media (max-width: 1200px) {
   .header-inner {
-    padding: 20px 40px;
+    padding: 0 40px;
   }
   
   .header-dropdown-inner {
@@ -841,7 +841,7 @@ img {
   }
   
   .nav-list li {
-    padding: 15px 15px;
+    padding: 0 25px;
   }
   
   .nav-list a {
@@ -872,7 +872,7 @@ img {
   }
   
   .tab-menu-inner {
-    padding-left: 160px;
+    padding-left: 80px;
   }
   
   .tab-item {
@@ -885,6 +885,7 @@ img {
 @media (max-width: 768px) {
   .header-inner {
     padding: 15px 20px;
+    height: auto;
     flex-wrap: wrap;
   }
   
@@ -896,6 +897,7 @@ img {
     order: 3;
     width: 100%;
     margin-top: 15px;
+    margin-left: 0;
   }
   
   .nav-list {
@@ -905,6 +907,7 @@ img {
   
   .nav-list li {
     padding: 10px;
+    height: auto;
   }
   
   .nav-list a {

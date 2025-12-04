@@ -58,7 +58,7 @@
           </div>
           <div class="dropdown-column">
             <a href="curriculum-recommend.html">추천학과</a>
-            <a href="#">교과소개</a>
+            <a href="curriculum-intro.html">교과소개</a>
           </div>
           <div class="dropdown-column">
             <a href="md-research-member.html">MD 연구센터</a>
@@ -72,7 +72,6 @@
         </div>
         <div class="dropdown-right-spacer"></div>
       </div>
-      <!-- 구분선 컨테이너 -->
       <div class="dropdown-dividers">
         <div class="dropdown-divider"></div>
         <div class="dropdown-divider"></div>
@@ -113,7 +112,7 @@
           <a href="sw-research-member.html">SW 기초교육 연구센터</a>
         </div>
       </div>
-      <div class="tab-item tab-dropdown" id="tabDropdown3">
+      <div class="tab-item tab-dropdown">
         <span>구성원</span>
         <img src="share/down.png" alt="선택" class="tab-arrow">
         <div class="tab-dropdown-menu">
@@ -397,9 +396,12 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        <div class="footer-logo">
+          <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        </div>
         <div class="footer-info">
-          <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학<br>대표전화 : 031-870-3710</p>
+          <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학</p>
+          <p>대표전화 : 031-870-3710</p>
           <p class="copyright">COPYRIGHT 2019. SHINHAN UNIVERSITY. All rights reserved.</p>
         </div>
       </div>
@@ -407,24 +409,21 @@
   </footer>
 
   <!-- Quick Menu -->
-  <div class="quick-menu">
-    <div class="quick-menu-tab" id="quickMenuTab">
-      <img src="share/trans.png" alt="Quick menu icon" class="quick-icon">
-      <span class="quick-text">Quick menu</span>
+  <div class="quick-menu" id="quickMenu">
+    <div class="quick-menu-toggle" id="quickMenuToggle">
+      <img src="share/trans.png" alt="Quick menu icon" class="swap-icon">
+      <span class="quick-menu-text">Quick menu</span>
     </div>
     <div class="quick-menu-panel" id="quickMenuPanel">
-      <a href="https://www.shinhan.ac.kr" target="_blank" class="quick-menu-item">신한대학교</a>
-      <div class="quick-menu-divider"></div>
-      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank" class="quick-menu-item">종합정보시스템</a>
-      <div class="quick-menu-divider"></div>
-      <a href="#" class="quick-menu-item">공지사항</a>
-      <div class="quick-menu-divider"></div>
-      <a href="#" class="quick-menu-item">FAQ</a>
+      <a href="https://www.shinhan.ac.kr" target="_blank">신한대학교</a>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank">종합정보시스템</a>
+      <a href="#">공지사항</a>
+      <a href="#">FAQ</a>
     </div>
   </div>
 
   <!-- Top Button -->
-  <button class="top-btn" id="topBtn">
+  <button class="top-btn" id="topBtn" aria-label="맨 위로">
     <img src="share/up_white.png" alt="위로 가기">
   </button>
 
@@ -458,6 +457,49 @@
   </div>
 
   <script>
+    // Quick Menu Toggle
+    const quickMenu = document.getElementById('quickMenu');
+    const quickMenuToggle = document.getElementById('quickMenuToggle');
+    
+    quickMenuToggle.addEventListener('click', function() {
+      quickMenu.classList.toggle('open');
+    });
+
+    // Top Button
+    const topBtn = document.getElementById('topBtn');
+    
+    topBtn.addEventListener('click', function() {
+      topBtn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(function() {
+        topBtn.classList.remove('active');
+      }, 500);
+    });
+
+    // Search Modal
+    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
+    const searchModal = document.getElementById('searchModal');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+    const searchInput = document.querySelector('.search-input');
+    
+    searchBtn.addEventListener('click', function() {
+      searchModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    searchCloseBtn.addEventListener('click', function() {
+      searchModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === searchModal) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
     // 드롭다운 열 위치를 헤더 메뉴에 맞춤
     function alignDropdownToNav() {
       const navItems = document.querySelectorAll('.nav-list li');
@@ -483,7 +525,7 @@
           const columnCenter = columnRect.left + columnRect.width / 2;
           
           const offset = navCenter - columnCenter;
-          column.style.transform = `translateX(${offset}px)`;
+          column.style.transform = 'translateX(' + offset + 'px)';
         }
       });
       
@@ -509,90 +551,26 @@
     
     // 리사이즈 시 디바운스 적용하여 정렬
     let resizeTimeout;
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function() {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(alignDropdownToNav, 100);
     });
     
-    // 드롭다운 hover 시 헤더 메뉴 색상 및 밑줄 변경
     const dropdownColumns = document.querySelectorAll('.dropdown-column');
-    const navItems = document.querySelectorAll('.nav-list li');
+    const navListItems = document.querySelectorAll('.nav-list li');
     
     dropdownColumns.forEach((column, index) => {
-      column.addEventListener('mouseenter', () => {
-        navItems[index].classList.add('dropdown-hover');
+      column.addEventListener('mouseenter', function() {
+        if (navListItems[index]) navListItems[index].classList.add('dropdown-hover');
       });
-      
-      column.addEventListener('mouseleave', () => {
-        navItems[index].classList.remove('dropdown-hover');
+      column.addEventListener('mouseleave', function() {
+        if (navListItems[index]) navListItems[index].classList.remove('dropdown-hover');
       });
-    });
-    
-    // 검색 모달
-    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
-    const searchModal = document.getElementById('searchModal');
-    const searchCloseBtn = document.getElementById('searchCloseBtn');
-    const searchInput = document.querySelector('.search-input');
-    
-    // 검색 버튼 클릭 시 모달 열기
-    searchBtn.addEventListener('click', () => {
-      searchModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => searchInput.focus(), 100);
-    });
-    
-    // 닫기 버튼 클릭 시 모달 닫기
-    searchCloseBtn.addEventListener('click', () => {
-      searchModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-    
-    // 모달 배경 클릭 시 닫기
-    searchModal.addEventListener('click', (e) => {
-      if (e.target === searchModal) {
-        searchModal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-    
-    // ESC 키로 모달 닫기
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && searchModal.classList.contains('active')) {
-        searchModal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-    
-    // 탑버튼 클릭
-    const topBtn = document.getElementById('topBtn');
-    topBtn.addEventListener('click', () => {
-      topBtn.classList.add('clicked');
-      window.scrollTo({top: 0, behavior: 'smooth'});
-      
-      // 500ms 후 색상 복원
-      setTimeout(() => {
-        topBtn.classList.remove('clicked');
-      }, 500);
-    });
-    
-    // 퀵메뉴 토글
-    const quickMenu = document.querySelector('.quick-menu');
-    const quickMenuTab = document.getElementById('quickMenuTab');
-    
-    quickMenuTab.addEventListener('click', () => {
-      quickMenu.classList.toggle('active');
-    });
-    
-    // 퀵메뉴 외부 클릭 시 닫기
-    document.addEventListener('click', (e) => {
-      if (!quickMenu.contains(e.target) && quickMenu.classList.contains('active')) {
-        quickMenu.classList.remove('active');
-      }
     });
     
     // 관련사이트 드롭다운
     const relatedSites = document.getElementById('relatedSites');
-    relatedSites.addEventListener('change', (e) => {
+    relatedSites.addEventListener('change', function(e) {
       const url = e.target.value;
       if (url) {
         window.open(url, '_blank');
@@ -624,3 +602,5 @@
   </script>
 </body>
 </html>
+
+

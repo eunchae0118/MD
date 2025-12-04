@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교과소개 - 교육과정 | 신한대학교 마이크로디그리대학</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/curriculum-intro.css">
+</head>
+<body>
+  <!-- Header Wrapper -->
+  <div class="header-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="#" class="logo">
+            <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#">대학소개</a></li>
+            <li><a href="#">학사정보</a></li>
+            <li><a href="curriculum-recommend.html" class="active">교육과정</a></li>
+            <li><a href="md-research-member.html">연구센터</a></li>
+            <li><a href="#">커뮤니티</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <button class="icon-btn" aria-label="검색">
+            <img src="share/search.png" alt="검색">
+          </button>
+          <button class="icon-btn" aria-label="언어 선택">
+            <img src="share/global.png" alt="언어">
+          </button>
+          <button class="icon-btn" aria-label="사용자">
+            <img src="share/user.png" alt="사용자">
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Header Dropdown Menu -->
+    <div class="header-dropdown">
+      <div class="header-dropdown-inner">
+        <div class="dropdown-spacer"></div>
+        <div class="dropdown-menus">
+          <div class="dropdown-column">
+            <a href="#">마이크로디그리</a>
+            <a href="#">교육목표</a>
+            <a href="#">교수소개</a>
+            <a href="#">찾아오시는길</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">이수체계</a>
+            <a href="#">학사안내</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="curriculum-recommend.html">추천학과</a>
+            <a href="curriculum-intro.html">교과소개</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="md-research-member.html">MD 연구센터</a>
+            <a href="sw-research-member.html">SW 기초교육 연구센터</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">학생</a>
+            <a href="#">교원</a>
+            <a href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="dropdown-right-spacer"></div>
+      </div>
+      <div class="dropdown-dividers">
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="banner-overlay"></div>
+    <h1 class="banner-title">교육과정</h1>
+  </section>
+
+  <!-- Tab Menu (Breadcrumb) -->
+  <div class="tab-menu">
+    <div class="tab-menu-inner">
+      <div class="tab-home">
+        <img src="share/home.png" alt="홈">
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown1">
+        <span>교육과정</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="#">대학소개</a>
+          <a href="#">학사정보</a>
+          <a href="curriculum-recommend.html" class="active">교육과정</a>
+          <a href="md-research-member.html">연구센터</a>
+          <a href="#">커뮤니티</a>
+        </div>
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown2">
+        <span>교과소개</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="curriculum-recommend.html">추천학과</a>
+          <a href="curriculum-intro.html" class="active">교과소개</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h2 class="section-title">교과소개</h2>
+    
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+      <button class="category-btn active" data-category="sw-basic">융합SW기초교육과정</button>
+      <button class="category-btn" data-category="sw-convergence">소프트웨어융합형</button>
+      <button class="category-btn" data-category="high-tech">첨단기술집약형</button>
+      <button class="category-btn" data-category="future-industry">미래산업고도화형</button>
+      <button class="category-btn" data-category="local-friendly">지역친화형</button>
+      <button class="category-btn" data-category="project-based">과제참여형</button>
+    </div>
+
+    <!-- Course Cards Grid -->
+    <div class="cards-grid">
+      <!-- Course Card 1 -->
+      <div class="course-card" data-course="1">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/ai-browser.png" alt="아이콘" class="course-icon">
+            <span class="course-name">혁신적GenAI비즈니스응용</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">1학년 신입생들이 생성형 AI 기술을 이해하고, 이를 통해 미래 비즈니스 환경에서 요구되는 분석 능력과 창의적 문제 해결 능력을 배양하기 위해 설계되었다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>GenAI는 현대 기업들이 더욱 혁신적이고 경쟁력 있는 비즈니스를 운영할 수 있도록 도와준다. 이를 통해 기업은 효율성을 높이고, 고객 경험을 향상시키며, 새로운 시장 기회를 창출할 수 있다. 앞으로 GenAI의 발전은 더욱 다양한 산업 분야에서 핵심적인 역할을 할 것으로 예상된다.</li>
+                <li>데이터 중심의 비즈니스 의사결정 과정에 있어 AI의 역할을 이해하고, 이를 기반으로 한 전략 수립 능력은 향후 학생들이 졸업 후 경쟁력 있는 전문가로 성장하는 데 필수적이다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 2 -->
+      <div class="course-card" data-course="2">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/google-sheet.png" alt="아이콘" class="course-icon">
+            <span class="course-name">비즈니스인텔리전스와데이터분석실무</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">비즈니스 인텔리전스와 데이터 분석을 통해 기업의 의사결정을 지원하는 실무 역량을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>데이터 수집, 분석, 시각화를 통해 비즈니스 의사결정을 지원하는 실무 능력을 배양한다.</li>
+                <li>다양한 BI 도구를 활용하여 데이터 기반 인사이트를 도출하는 방법을 학습한다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 3 -->
+      <div class="course-card" data-course="3">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/chart-line-data-02.png" alt="아이콘" class="course-icon">
+            <span class="course-name">Orange3를활용한노코드데이터분석</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">노코드 도구를 활용한 데이터 분석 역량을 배양하여 비전공자도 데이터를 다룰 수 있게 한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>Orange3 도구를 활용하여 코딩 없이 데이터 분석을 수행하는 방법을 학습한다.</li>
+                <li>시각적 워크플로우를 통해 머신러닝 모델을 구축하고 평가하는 방법을 익힌다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 4 -->
+      <div class="course-card" data-course="4">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/lightbulb-shine-line.png" alt="아이콘" class="course-icon">
+            <span class="course-name">컴퓨터는어떻게생각할까? 컴퓨팅사고</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">컴퓨팅 사고력과 문제 해결 능력을 기르고, 일상의 문제를 컴퓨터 과학적 관점에서 분석하는 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 2학점, 실습 1학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>컴퓨터 과학의 기본 원리와 논리적 사고 방법을 학습한다.</li>
+                <li>알고리즘적 사고와 추상화를 통해 복잡한 문제를 단순화하는 능력을 기른다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 5 -->
+      <div class="course-card" data-course="5">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/computer.png" alt="아이콘" class="course-icon">
+            <span class="course-name">R프로그래밍의이해</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">R 프로그래밍 언어를 활용한 데이터 분석 역량을 기르고, 통계적 분석 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>R 언어의 기초 문법과 통계 분석 기법을 학습한다.</li>
+                <li>데이터 시각화와 통계 모델링을 통해 실제 데이터를 분석하는 능력을 기른다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 6 -->
+      <div class="course-card" data-course="6">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/laptop-line.png" alt="아이콘" class="course-icon">
+            <span class="course-name">프로그래밍 입문</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">프로그래밍의 기초 개념과 논리적 사고력을 배양하여 소프트웨어 개발의 기반을 마련한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>프로그래밍의 기본 문법과 알고리즘을 학습한다.</li>
+                <li>Python을 활용하여 간단한 프로그램을 작성하고 문제를 해결하는 능력을 기른다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 7 -->
+      <div class="course-card" data-course="7">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/c-programming.png" alt="아이콘" class="course-icon">
+            <span class="course-name">공학자를위한C언어기초</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">C 언어를 활용한 공학 프로그래밍 역량을 기르고, 시스템 프로그래밍의 기초를 마련한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>C 언어의 기초 문법과 공학적 응용을 학습한다.</li>
+                <li>포인터, 메모리 관리 등 시스템 수준의 프로그래밍 개념을 익힌다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 8 -->
+      <div class="course-card" data-course="8">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/analytics-line.png" alt="아이콘" class="course-icon">
+            <span class="course-name">데이터 분석으로 문제해결</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">데이터 분석을 통한 문제 해결 역량을 기르고, 데이터 기반 의사결정 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>실제 데이터를 활용하여 문제를 분석하고 해결하는 방법을 학습한다.</li>
+                <li>데이터 전처리, 분석, 시각화의 전 과정을 실습을 통해 익힌다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 9 -->
+      <div class="course-card" data-course="9">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/ai-browser.png" alt="아이콘" class="course-icon">
+            <span class="course-name">디자인소프트웨어AI융합특론</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">AI와 디자인 소프트웨어의 융합 역량을 기르고, 창의적인 디지털 콘텐츠 제작 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>디자인 소프트웨어와 AI 기술의 융합 활용법을 학습한다.</li>
+                <li>생성형 AI를 활용한 디자인 작업과 창작 프로세스를 실습한다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 10 -->
+      <div class="course-card" data-course="10">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/video-plus-line.png" alt="아이콘" class="course-icon">
+            <span class="course-name">의료영상처리 이해</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">의료 영상 처리의 기초와 응용을 이해하고, 의료 분야의 디지털 기술 활용 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 2학점, 실습 1학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>의료 영상의 원리와 디지털 처리 기법을 학습한다.</li>
+                <li>CT, MRI 등 다양한 의료 영상의 특성과 분석 방법을 익힌다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 11 -->
+      <div class="course-card" data-course="11">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/smart-phone-02.png" alt="아이콘" class="course-icon">
+            <span class="course-name">디자인씽킹과노코딩앱제작(1)</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">디자인 씽킹과 노코드 앱 개발 역량을 기르고, 사용자 중심의 서비스 기획 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 1학점, 실습 2학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>디자인 씽킹 방법론과 노코드 도구를 활용한 앱 제작을 학습한다.</li>
+                <li>사용자 요구사항 분석부터 프로토타입 제작까지의 전 과정을 실습한다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 12 -->
+      <div class="course-card" data-course="12">
+        <div class="course-header">
+          <div class="course-info">
+            <img src="sub_intro/folder-video.png" alt="아이콘" class="course-icon">
+            <span class="course-name">디지털 영상정보학</span>
+          </div>
+          <div class="course-actions">
+            <button class="compare-btn">
+              <svg class="check-icon" viewBox="0 0 13 11" fill="none">
+                <path d="M1 5.5L4.5 9L12 1" stroke="#42BEAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>비교</span>
+            </button>
+            <img src="sub_intro/chevron-down-outline.png" alt="펼치기" class="expand-icon">
+          </div>
+        </div>
+        <div class="course-content">
+          <div class="content-row">
+            <span class="content-label">교육 목표</span>
+            <p class="content-text">디지털 영상 정보의 이론과 응용을 학습하고, 영상 데이터 처리 능력을 배양한다.</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">이수 학점</span>
+            <p class="content-text">3학점 (이론 2학점, 실습 1학점)</p>
+          </div>
+          <div class="content-row">
+            <span class="content-label">과정 소개</span>
+            <div class="content-text">
+              <ul class="content-list">
+                <li>디지털 영상의 기초 이론과 처리 기법을 학습한다.</li>
+                <li>영상 압축, 복원, 분석 등의 기술을 실습을 통해 익힌다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Compare Panel (Fixed) -->
+  <div class="compare-panel" id="comparePanel">
+    <div class="compare-panel-header">
+      <h3 class="compare-panel-title">교과과정 비교하기</h3>
+      <button class="compare-panel-close" id="comparePanelClose">
+        <img src="share/close.png" alt="닫기">
+      </button>
+    </div>
+    <div class="compare-panel-content">
+      <div class="compare-slots">
+        <div class="compare-slot" id="compareSlot1">
+          <span class="slot-placeholder">과목을 선택해주세요</span>
+        </div>
+        <div class="compare-slot" id="compareSlot2">
+          <span class="slot-placeholder">과목을 선택해주세요</span>
+        </div>
+      </div>
+      <button class="compare-action-btn" id="compareActionBtn">비교하기</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <span class="divider"></span>
+          <a href="#">영상정보처리기기관리방침</a>
+          <span class="divider"></span>
+          <a href="#">이메일무단수집거부</a>
+          <span class="divider"></span>
+          <a href="#">찾아오시는 길</a>
+        </div>
+        <div class="footer-select">
+          <select id="relatedSites">
+            <option value="">관련사이트</option>
+            <option value="https://www.shinhan.ac.kr">신한대학교</option>
+            <option value="https://stins.shinhan.ac.kr/irj/portal">종합정보시스템</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-logo">
+          <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        </div>
+        <div class="footer-info">
+          <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학</p>
+          <p>대표전화 : 031-870-3710</p>
+          <p class="copyright">COPYRIGHT 2019. SHINHAN UNIVERSITY. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick Menu -->
+  <div class="quick-menu" id="quickMenu">
+    <div class="quick-menu-toggle" id="quickMenuToggle">
+      <img src="share/trans.png" alt="Quick menu icon" class="swap-icon">
+      <span class="quick-menu-text">Quick menu</span>
+    </div>
+    <div class="quick-menu-panel" id="quickMenuPanel">
+      <a href="https://www.shinhan.ac.kr" target="_blank">신한대학교</a>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank">종합정보시스템</a>
+      <a href="#">공지사항</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Top Button -->
+  <button class="top-btn" id="topBtn" aria-label="맨 위로">
+    <img src="share/up_white.png" alt="위로 가기">
+  </button>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <div class="search-header">
+        <h2 class="search-title">통합검색</h2>
+        <button class="search-close-btn" id="searchCloseBtn">
+          <img src="share/close.png" alt="닫기">
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <input type="text" class="search-input" placeholder="검색어를 입력해주세요">
+        <button class="search-submit-btn">
+          <img src="share/search_blue.png" alt="검색">
+        </button>
+      </div>
+      <div class="search-keywords">
+        <h3 class="search-keywords-title">추천 검색어</h3>
+        <div class="search-tags">
+          <a href="#" class="search-tag"># 졸업요건</a>
+          <a href="#" class="search-tag"># 학과별 추천</a>
+          <a href="#" class="search-tag"># 과목 소개</a>
+          <a href="#" class="search-tag"># 마이크로디그리란?</a>
+          <a href="#" class="search-tag"># 신청방법</a>
+          <a href="#" class="search-tag"># FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Variables for comparison
+    let selectedCourses = [];
+    const maxCompare = 2;
+    const comparePanel = document.getElementById('comparePanel');
+    const comparePanelClose = document.getElementById('comparePanelClose');
+    const compareSlot1 = document.getElementById('compareSlot1');
+    const compareSlot2 = document.getElementById('compareSlot2');
+    const compareActionBtn = document.getElementById('compareActionBtn');
+
+    // Quick Menu Toggle
+    const quickMenu = document.getElementById('quickMenu');
+    const quickMenuToggle = document.getElementById('quickMenuToggle');
+    
+    quickMenuToggle.addEventListener('click', function() {
+      quickMenu.classList.toggle('open');
+    });
+
+    // Top Button
+    const topBtn = document.getElementById('topBtn');
+    
+    topBtn.addEventListener('click', function() {
+      topBtn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(function() {
+        topBtn.classList.remove('active');
+      }, 500);
+    });
+
+    // Search Modal
+    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
+    const searchModal = document.getElementById('searchModal');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+    const searchInput = document.querySelector('.search-input');
+    
+    searchBtn.addEventListener('click', function() {
+      searchModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    searchCloseBtn.addEventListener('click', function() {
+      searchModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === searchModal) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // 드롭다운 열 위치를 헤더 메뉴에 맞춤
+    function alignDropdownToNav() {
+      const navItems = document.querySelectorAll('.nav-list li');
+      const dropdownColumns = document.querySelectorAll('.dropdown-column');
+      const dropdownDividers = document.querySelectorAll('.dropdown-divider');
+      
+      dropdownColumns.forEach(column => {
+        column.style.transform = 'none';
+      });
+      
+      void document.body.offsetHeight;
+      
+      navItems.forEach((navItem, index) => {
+        if (dropdownColumns[index]) {
+          const navRect = navItem.getBoundingClientRect();
+          const navCenter = navRect.left + navRect.width / 2;
+          
+          const column = dropdownColumns[index];
+          const columnRect = column.getBoundingClientRect();
+          const columnCenter = columnRect.left + columnRect.width / 2;
+          
+          const offset = navCenter - columnCenter;
+          column.style.transform = 'translateX(' + offset + 'px)';
+        }
+      });
+      
+      for (let i = 0; i < dropdownDividers.length; i++) {
+        const currentNav = navItems[i];
+        const nextNav = navItems[i + 1];
+        
+        if (currentNav && nextNav) {
+          const currentRect = currentNav.getBoundingClientRect();
+          const nextRect = nextNav.getBoundingClientRect();
+          const dividerX = (currentRect.right + nextRect.left) / 2;
+          dropdownDividers[i].style.left = dividerX + 'px';
+        }
+      }
+    }
+    
+    window.addEventListener('load', alignDropdownToNav);
+    
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(alignDropdownToNav, 100);
+    });
+    
+    const dropdownColumns = document.querySelectorAll('.dropdown-column');
+    const navListItems = document.querySelectorAll('.nav-list li');
+    
+    dropdownColumns.forEach((column, index) => {
+      column.addEventListener('mouseenter', function() {
+        if (navListItems[index]) navListItems[index].classList.add('dropdown-hover');
+      });
+      column.addEventListener('mouseleave', function() {
+        if (navListItems[index]) navListItems[index].classList.remove('dropdown-hover');
+      });
+    });
+    
+    // 관련사이트 드롭다운
+    const relatedSites = document.getElementById('relatedSites');
+    relatedSites.addEventListener('change', function(e) {
+      const url = e.target.value;
+      if (url) {
+        window.open(url, '_blank');
+        e.target.value = '';
+      }
+    });
+    
+    // 탭 드롭다운 클릭 토글
+    const tabDropdowns = document.querySelectorAll('.tab-dropdown');
+    tabDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tabDropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    document.addEventListener('click', (e) => {
+      tabDropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+
+    // Category Button Click
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Accordion functionality - Single open at a time
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    courseCards.forEach(card => {
+      const header = card.querySelector('.course-header');
+      const expandIcon = card.querySelector('.expand-icon');
+      
+      // Click on header (except compare button) to toggle
+      header.addEventListener('click', (e) => {
+        // Don't toggle if clicking compare button
+        if (e.target.closest('.compare-btn')) return;
+        
+        const isOpen = card.classList.contains('open');
+        
+        // Close all other cards
+        courseCards.forEach(c => {
+          if (c !== card) {
+            c.classList.remove('open');
+          }
+        });
+        
+        // Toggle current card
+        card.classList.toggle('open');
+      });
+    });
+
+    // Compare button functionality
+    const compareBtns = document.querySelectorAll('.compare-btn');
+    
+    compareBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        const card = btn.closest('.course-card');
+        const courseId = card.dataset.course;
+        const courseName = card.querySelector('.course-name').textContent;
+        const courseIcon = card.querySelector('.course-icon').src;
+        
+        const isSelected = btn.classList.contains('selected');
+        
+        if (isSelected) {
+          // Remove from selection
+          btn.classList.remove('selected');
+          selectedCourses = selectedCourses.filter(c => c.id !== courseId);
+        } else {
+          // Add to selection (max 2)
+          if (selectedCourses.length >= maxCompare) {
+            alert('최대 2개까지 비교할 수 있습니다.');
+            return;
+          }
+          btn.classList.add('selected');
+          selectedCourses.push({
+            id: courseId,
+            name: courseName,
+            icon: courseIcon,
+            element: card
+          });
+        }
+        
+        updateComparePanel();
+      });
+    });
+
+    // Update compare panel
+    function updateComparePanel() {
+      if (selectedCourses.length > 0) {
+        comparePanel.classList.add('active');
+      } else {
+        comparePanel.classList.remove('active');
+      }
+      
+      // Update slot 1
+      if (selectedCourses[0]) {
+        compareSlot1.innerHTML = `
+          <img src="${selectedCourses[0].icon}" alt="아이콘" class="slot-icon">
+          <span class="slot-name">${selectedCourses[0].name}</span>
+          <button class="slot-remove" data-index="0">×</button>
+        `;
+        compareSlot1.classList.add('filled');
+      } else {
+        compareSlot1.innerHTML = '<span class="slot-placeholder">과목을 선택해주세요</span>';
+        compareSlot1.classList.remove('filled');
+      }
+      
+      // Update slot 2
+      if (selectedCourses[1]) {
+        compareSlot2.innerHTML = `
+          <img src="${selectedCourses[1].icon}" alt="아이콘" class="slot-icon">
+          <span class="slot-name">${selectedCourses[1].name}</span>
+          <button class="slot-remove" data-index="1">×</button>
+        `;
+        compareSlot2.classList.add('filled');
+      } else {
+        compareSlot2.innerHTML = '<span class="slot-placeholder">과목을 선택해주세요</span>';
+        compareSlot2.classList.remove('filled');
+      }
+      
+      // Add remove button handlers
+      document.querySelectorAll('.slot-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const index = parseInt(btn.dataset.index);
+          const course = selectedCourses[index];
+          
+          // Remove selection from button
+          const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
+          if (cardBtn) cardBtn.classList.remove('selected');
+          
+          selectedCourses.splice(index, 1);
+          updateComparePanel();
+        });
+      });
+    }
+
+    // Close compare panel
+    comparePanelClose.addEventListener('click', () => {
+      // Clear all selections
+      selectedCourses.forEach(course => {
+        const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
+        if (cardBtn) cardBtn.classList.remove('selected');
+      });
+      selectedCourses = [];
+      comparePanel.classList.remove('active');
+    });
+
+    // Compare action button
+    compareActionBtn.addEventListener('click', () => {
+      if (selectedCourses.length === 0) {
+        alert('비교할 과목을 선택해주세요.');
+        return;
+      }
+      
+      // Close all cards first
+      courseCards.forEach(c => c.classList.remove('open'));
+      
+      // Open selected cards
+      selectedCourses.forEach(course => {
+        course.element.classList.add('open');
+      });
+      
+      // Scroll to first selected card
+      if (selectedCourses[0]) {
+        selectedCourses[0].element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
+
