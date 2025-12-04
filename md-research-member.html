@@ -72,6 +72,13 @@
         </div>
         <div class="dropdown-right-spacer"></div>
       </div>
+      <!-- 구분선 컨테이너 -->
+      <div class="dropdown-dividers">
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+      </div>
     </div>
   </div>
 
@@ -436,6 +443,62 @@
   </div>
 
   <script>
+    // 드롭다운 열 위치를 헤더 메뉴에 맞춤
+    function alignDropdownToNav() {
+      const navItems = document.querySelectorAll('.nav-list li');
+      const dropdownColumns = document.querySelectorAll('.dropdown-column');
+      const dropdownDividers = document.querySelectorAll('.dropdown-divider');
+      
+      // 먼저 모든 transform 리셋
+      dropdownColumns.forEach(column => {
+        column.style.transform = 'none';
+      });
+      
+      // 리플로우 강제 (브라우저가 위치를 다시 계산하도록)
+      void document.body.offsetHeight;
+      
+      // 각 열의 위치 조정
+      navItems.forEach((navItem, index) => {
+        if (dropdownColumns[index]) {
+          const navRect = navItem.getBoundingClientRect();
+          const navCenter = navRect.left + navRect.width / 2;
+          
+          const column = dropdownColumns[index];
+          const columnRect = column.getBoundingClientRect();
+          const columnCenter = columnRect.left + columnRect.width / 2;
+          
+          const offset = navCenter - columnCenter;
+          column.style.transform = `translateX(${offset}px)`;
+        }
+      });
+      
+      // 구분선 위치 설정 (헤더 메뉴 사이의 정확한 중간)
+      for (let i = 0; i < dropdownDividers.length; i++) {
+        const currentNav = navItems[i];
+        const nextNav = navItems[i + 1];
+        
+        if (currentNav && nextNav) {
+          const currentRect = currentNav.getBoundingClientRect();
+          const nextRect = nextNav.getBoundingClientRect();
+          
+          // 현재 메뉴의 오른쪽 끝과 다음 메뉴의 왼쪽 시작의 중간
+          const dividerX = (currentRect.right + nextRect.left) / 2;
+          
+          dropdownDividers[i].style.left = dividerX + 'px';
+        }
+      }
+    }
+    
+    // 페이지 로드 시 정렬
+    window.addEventListener('load', alignDropdownToNav);
+    
+    // 리사이즈 시 디바운스 적용하여 정렬
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(alignDropdownToNav, 100);
+    });
+    
     // 드롭다운 hover 시 헤더 메뉴 색상 및 밑줄 변경
     const dropdownColumns = document.querySelectorAll('.dropdown-column');
     const navItems = document.querySelectorAll('.nav-list li');
