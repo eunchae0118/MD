@@ -616,8 +616,23 @@ img {
   flex-shrink: 0;
 }
 
-.radio-btn.active {
+/* 첫 번째 옵션 (마이크로디그리 과정 필수) */
+.radio-option:first-child .radio-btn {
   background-color: #1DC1B6;
+}
+
+/* 두 번째 옵션 (마이크로디그리 과정 선택) */
+.radio-option:last-child .radio-btn {
+  background-color: #B9ECE8;
+}
+
+/* active 상태에서도 각 옵션의 고유 색상 유지 */
+.radio-option:first-child .radio-btn.active {
+  background-color: #1DC1B6;
+}
+
+.radio-option:last-child .radio-btn.active {
+  background-color: #B9ECE8;
 }
 
 .radio-option span {
@@ -673,6 +688,10 @@ img {
   color: #000000;
   white-space: nowrap;
   width: 100%;
+}
+
+.course-btn.active {
+  background-color: #1DC1B6;
 }
 
 .course-btn.required {
