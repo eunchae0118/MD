@@ -538,7 +538,7 @@ img {
 }
 
 .course-card.open .course-content {
-  max-height: 600px;
+  max-height: 1200px;
   padding: 36px 32px;
 }
 
@@ -555,7 +555,7 @@ img {
 }
 
 .content-label {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
   white-space: nowrap;
@@ -564,7 +564,7 @@ img {
 }
 
 .content-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #000000;
   line-height: 1.45;
@@ -580,7 +580,7 @@ img {
 }
 
 .content-list li {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #000000;
   line-height: 1.45;
@@ -589,6 +589,114 @@ img {
 
 .content-list li:last-child {
   margin-bottom: 0;
+}
+
+/* Curriculum Section (for 소프트웨어융합형) */
+.curriculum-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+  align-items: center;
+  position: relative;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.radio-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #B9ECE8;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.radio-btn.active {
+  background-color: #1DC1B6;
+}
+
+.radio-option span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #b0b0b0;
+  white-space: nowrap;
+}
+
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.curriculum-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  margin-bottom: 12px;
+}
+
+.curriculum-item:last-child {
+  margin-bottom: 0;
+}
+
+.curriculum-semester {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  min-width: 30px;
+  flex-shrink: 0;
+  padding-top: 5px;
+}
+
+.curriculum-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.course-btn {
+  height: 36px;
+  padding: 0 20px;
+  background-color: #B9ECE8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.course-btn.required {
+  background-color: #1DC1B6;
+}
+
+/* Video Link Section */
+.video-link {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.video-link:hover {
+  opacity: 0.7;
+}
+
+.video-link svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 /* Compare Panel */
