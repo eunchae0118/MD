@@ -590,22 +590,45 @@
 
   <!-- Compare Panel (Fixed) -->
   <div class="compare-panel" id="comparePanel">
-    <div class="compare-panel-header">
-      <h3 class="compare-panel-title">교과과정 비교하기</h3>
-      <button class="compare-panel-close" id="comparePanelClose">
-        <img src="share/close.png" alt="닫기">
-      </button>
-    </div>
-    <div class="compare-panel-content">
-      <div class="compare-slots">
-        <div class="compare-slot" id="compareSlot1">
-          <span class="slot-placeholder">과목을 선택해주세요</span>
+    <div class="compare-panel-inner">
+      <div class="compare-panel-header">
+        <h3 class="compare-panel-title">교과과정 비교하기</h3>
+        <button class="compare-panel-close" id="comparePanelClose">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="compare-panel-content">
+        <div class="compare-slots">
+          <div class="compare-slot" id="compareSlot1">
+            <span class="slot-placeholder">과목을 선택해주세요</span>
+          </div>
+          <div class="compare-slot" id="compareSlot2">
+            <span class="slot-placeholder">과목을 선택해주세요</span>
+          </div>
         </div>
-        <div class="compare-slot" id="compareSlot2">
-          <span class="slot-placeholder">과목을 선택해주세요</span>
+        <div class="compare-buttons">
+          <button class="compare-reset-btn" id="compareResetBtn">초기화</button>
+          <button class="compare-action-btn" id="compareActionBtn">비교하기</button>
         </div>
       </div>
-      <button class="compare-action-btn" id="compareActionBtn">비교하기</button>
+      <!-- Expanded Compare Content -->
+      <div class="compare-expanded-content" id="compareExpandedContent" style="display: none;">
+        <div class="compare-expanded-header">
+          <h3 class="compare-panel-title">교과과정 비교하기</h3>
+          <div class="compare-expanded-actions">
+            <button class="compare-reset-btn" id="compareResetBtnExpanded">초기화</button>
+            <button class="compare-collapse-btn" id="compareCollapseBtn">
+              <img src="share/down.png" alt="접기">
+            </button>
+          </div>
+        </div>
+        <div class="compare-cards-container">
+          <div class="compare-card" id="compareCard1"></div>
+          <div class="compare-card" id="compareCard2"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -683,8 +706,8 @@
         <h3 class="search-keywords-title">추천 검색어</h3>
         <div class="search-tags">
           <a href="#" class="search-tag"># 졸업요건</a>
-          <a href="#" class="search-tag"># 학과별 추천</a>
-          <a href="#" class="search-tag"># 과목 소개</a>
+          <a href="curriculum-recommend.html" class="search-tag"># 학과별 추천</a>
+          <a href="curriculum-intro.html" class="search-tag"># 과목 소개</a>
           <a href="#" class="search-tag"># 마이크로디그리란?</a>
           <a href="#" class="search-tag"># 신청방법</a>
           <a href="#" class="search-tag"># FAQ</a>
@@ -702,6 +725,7 @@
     const compareSlot1 = document.getElementById('compareSlot1');
     const compareSlot2 = document.getElementById('compareSlot2');
     const compareActionBtn = document.getElementById('compareActionBtn');
+    const compareResetBtn = document.getElementById('compareResetBtn');
 
     // Quick Menu Toggle
     const quickMenu = document.getElementById('quickMenu');
@@ -852,9 +876,9 @@
       'sw-basic': 'curriculum-intro.html',
       'sw-convergence': 'curriculum-soft.html',
       'high-tech': 'curriculum-tech.html',
-      'future-industry': '#', // 아직 페이지 없음
-      'local-friendly': '#', // 아직 페이지 없음
-      'project-based': '#' // 아직 페이지 없음
+      'future-industry': 'curriculum-future.html',
+      'local-friendly': 'curriculum-area.html',
+      'project-based': 'curriculum-project.html'
     };
     
     categoryBtns.forEach(btn => {
@@ -899,6 +923,9 @@
     // Get all cards again after moving them
     const allCards = document.querySelectorAll('.course-card');
     
+    // Restore compare state on page load
+    restoreCompareState();
+    
     // Accordion functionality - Single open at a time
     allCards.forEach(card => {
       const header = card.querySelector('.course-header');
@@ -914,16 +941,34 @@
         // If clicking the same card that's already open, close it
         if (isOpen) {
           card.classList.remove('open');
+          const cardContent = card.querySelector('.course-content');
+          if (cardContent) {
+            cardContent.style.maxHeight = null;
+          }
           return;
         }
         
-        // Close all other cards
+        // Close all other cards FIRST (synchronously)
         allCards.forEach(c => {
-          c.classList.remove('open');
+          if (c !== card && c.classList.contains('open')) {
+            c.classList.remove('open');
+            const otherContent = c.querySelector('.course-content');
+            if (otherContent) {
+              otherContent.style.maxHeight = null;
+            }
+          }
         });
         
-        // Open current card
-        card.classList.add('open');
+        // Then open current card (using requestAnimationFrame to ensure other cards are closed first)
+        requestAnimationFrame(() => {
+          card.classList.add('open');
+          const cardContent = card.querySelector('.course-content');
+          if (cardContent) {
+            // Calculate scrollHeight with a small buffer to ensure all content is visible
+            const scrollHeight = cardContent.scrollHeight;
+            cardContent.style.maxHeight = scrollHeight + 50 + 'px';
+          }
+        });
       });
     });
 
@@ -952,11 +997,14 @@
             return;
           }
           btn.classList.add('selected');
+          // Extract full course data immediately
+          const courseData = extractCourseData(card);
           selectedCourses.push({
             id: courseId,
             name: courseName,
             icon: courseIcon,
-            element: card
+            element: card,
+            data: courseData
           });
         }
         
@@ -970,16 +1018,52 @@
     function updateComparePanel() {
       if (selectedCourses.length > 0) {
         comparePanel.classList.add('active');
+        // Save to localStorage with full course data
+        const compareData = selectedCourses.map(course => {
+          if (course.element) {
+            // Extract full data from element
+            const fullData = extractCourseData(course.element);
+            return {
+              name: course.name,
+              icon: course.icon,
+              id: course.id,
+              data: fullData
+            };
+          } else {
+            // Use saved data if element is null (from other category)
+            return {
+              name: course.name,
+              icon: course.icon,
+              id: course.id,
+              data: course.data || null
+            };
+          }
+        });
+        localStorage.setItem('compareCourses', JSON.stringify(compareData));
+        // Save panel open state
+        localStorage.setItem('comparePanelOpen', 'true');
       } else {
-        comparePanel.classList.remove('active');
+        // Don't hide panel if it's already open - only hide when explicitly closed via X button
+        // Clear localStorage
+        localStorage.removeItem('compareCourses');
+        // Keep panel open state if panel is currently visible
+        if (comparePanel.classList.contains('active')) {
+          localStorage.setItem('comparePanelOpen', 'true');
+        }
       }
       
       // Update slot 1
       if (selectedCourses[0]) {
         compareSlot1.innerHTML = `
-          <img src="${selectedCourses[0].icon}" alt="아이콘" class="slot-icon">
-          <span class="slot-name">${selectedCourses[0].name}</span>
-          <button class="slot-remove" data-index="0">×</button>
+          <div class="compare-slot-content">
+            <img src="${selectedCourses[0].icon}" alt="아이콘" class="slot-icon">
+            <span class="slot-name">${selectedCourses[0].name}</span>
+            <button class="slot-remove" data-index="0">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         `;
         compareSlot1.classList.add('filled');
       } else {
@@ -990,9 +1074,15 @@
       // Update slot 2
       if (selectedCourses[1]) {
         compareSlot2.innerHTML = `
-          <img src="${selectedCourses[1].icon}" alt="아이콘" class="slot-icon">
-          <span class="slot-name">${selectedCourses[1].name}</span>
-          <button class="slot-remove" data-index="1">×</button>
+          <div class="compare-slot-content">
+            <img src="${selectedCourses[1].icon}" alt="아이콘" class="slot-icon">
+            <span class="slot-name">${selectedCourses[1].name}</span>
+            <button class="slot-remove" data-index="1">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         `;
         compareSlot2.classList.add('filled');
       } else {
@@ -1016,17 +1106,255 @@
         });
       });
     }
+    
+    // Restore compare state from localStorage
+    function restoreCompareState() {
+      const savedCompare = localStorage.getItem('compareCourses');
+      const panelOpen = localStorage.getItem('comparePanelOpen');
+      
+      if (savedCompare) {
+        try {
+          const compareData = JSON.parse(savedCompare);
+          if (Array.isArray(compareData) && compareData.length > 0) {
+            // Find matching courses in current page
+            const allCards = document.querySelectorAll('.course-card');
+            compareData.forEach((savedCourse, index) => {
+              if (index >= maxCompare) return;
+              
+              // Find course by name
+              let foundCard = null;
+              allCards.forEach(card => {
+                const courseName = card.querySelector('.course-name').textContent;
+                if (courseName === savedCourse.name) {
+                  foundCard = card;
+                }
+              });
+              
+              if (foundCard) {
+                const courseId = foundCard.dataset.course;
+                const courseName = foundCard.querySelector('.course-name').textContent;
+                const courseIcon = foundCard.querySelector('.course-icon').src;
+                const cardBtn = foundCard.querySelector('.compare-btn');
+                
+                if (cardBtn && !cardBtn.classList.contains('selected')) {
+                  cardBtn.classList.add('selected');
+                  // Extract full course data
+                  const courseData = extractCourseData(foundCard);
+                  selectedCourses.push({
+                    id: courseId,
+                    name: courseName,
+                    icon: courseIcon,
+                    element: foundCard,
+                    data: courseData
+                  });
+                }
+              } else {
+                // Course not found in current page, but keep it in panel
+                selectedCourses.push({
+                  id: savedCourse.id || 'external-' + index,
+                  name: savedCourse.name,
+                  icon: savedCourse.icon,
+                  element: null,
+                  data: savedCourse.data || null
+                });
+              }
+            });
+            
+            // Update panel with saved data
+            updateComparePanel();
+          }
+        } catch (e) {
+          console.error('Error restoring compare state:', e);
+          localStorage.removeItem('compareCourses');
+        }
+      }
+      
+      // Restore panel open state even if no courses are selected
+      if (panelOpen === 'true') {
+        comparePanel.classList.add('active');
+      }
+    }
 
     // Close compare panel
     comparePanelClose.addEventListener('click', () => {
       // Clear all selections
       selectedCourses.forEach(course => {
-        const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
-        if (cardBtn) cardBtn.classList.remove('selected');
+        if (course.id && !course.id.startsWith('external-')) {
+          const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
+          if (cardBtn) cardBtn.classList.remove('selected');
+        }
       });
       selectedCourses = [];
       comparePanel.classList.remove('active');
+      // Clear localStorage
+      localStorage.removeItem('compareCourses');
+      localStorage.removeItem('comparePanelOpen');
     });
+
+    // Reset button
+    compareResetBtn.addEventListener('click', () => {
+      // Clear all selections
+      selectedCourses.forEach(course => {
+        if (course.id && !course.id.startsWith('external-')) {
+          const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
+          if (cardBtn) cardBtn.classList.remove('selected');
+        }
+      });
+      selectedCourses = [];
+      // Clear localStorage
+      localStorage.removeItem('compareCourses');
+      // Update panel to show empty slots (but keep panel visible)
+      updateComparePanel();
+      // Keep panel visible even when no courses are selected
+      comparePanel.classList.add('active');
+    });
+
+    // Function to extract course data from card element
+    function extractCourseData(cardElement) {
+      if (!cardElement) return null;
+      
+      const courseName = cardElement.querySelector('.course-name')?.textContent || '';
+      const courseIcon = cardElement.querySelector('.course-icon')?.src || '';
+      const courseContent = cardElement.querySelector('.course-content');
+      
+      if (!courseContent) return null;
+      
+      const data = {
+        name: courseName,
+        icon: courseIcon,
+        educationalGoal: '',
+        credits: '',
+        courseIntroduction: '',
+        curriculum: '',
+        video: ''
+      };
+      
+      const contentRows = courseContent.querySelectorAll('.content-row');
+      contentRows.forEach(row => {
+        const label = row.querySelector('.content-label')?.textContent?.trim() || '';
+        const textElement = row.querySelector('.content-text');
+        
+        if (label === '교육 목표') {
+          const p = textElement?.querySelector('p');
+          const ul = textElement?.querySelector('ul');
+          if (p) {
+            data.educationalGoal = p.textContent;
+          } else if (ul) {
+            data.educationalGoal = Array.from(ul.querySelectorAll('li')).map(li => li.textContent).join('\n');
+          } else {
+            data.educationalGoal = textElement?.textContent || '';
+          }
+        } else if (label === '이수 학점') {
+          data.credits = textElement?.textContent?.trim() || '';
+        } else if (label === '과정 소개') {
+          const ul = textElement?.querySelector('ul');
+          if (ul) {
+            data.courseIntroduction = Array.from(ul.querySelectorAll('li')).map(li => li.textContent);
+          } else {
+            data.courseIntroduction = textElement?.textContent || '';
+          }
+        } else if (label === '교육과정') {
+          data.curriculum = textElement?.innerHTML || '';
+        } else if (label === '소개 영상') {
+          const link = textElement?.querySelector('a');
+          if (link) {
+            data.video = link.href;
+          }
+        }
+      });
+      
+      return data;
+    }
+    
+    // Function to render course card in expanded view
+    function renderCourseCard(cardElement, courseData, cardId) {
+      if (!courseData) {
+        cardElement.innerHTML = '<div class="compare-card empty"><span class="slot-placeholder">과목을 선택해주세요</span></div>';
+        cardElement.classList.add('empty');
+        return;
+      }
+      
+      cardElement.classList.remove('empty');
+      
+      let curriculumHTML = '';
+      if (courseData.curriculum) {
+        curriculumHTML = `
+          <div class="compare-card-row">
+            <span class="compare-card-label">교육과정</span>
+            <div class="compare-card-text">
+              <div class="compare-card-curriculum">
+                ${courseData.curriculum}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      
+      let introductionHTML = '';
+      if (Array.isArray(courseData.courseIntroduction)) {
+        introductionHTML = `
+          <ul class="compare-card-list">
+            ${courseData.courseIntroduction.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        `;
+      } else if (courseData.courseIntroduction) {
+        introductionHTML = `<p>${courseData.courseIntroduction}</p>`;
+      }
+      
+      let videoHTML = '';
+      if (courseData.video) {
+        videoHTML = `
+          <div class="compare-card-row">
+            <span class="compare-card-label">소개 영상</span>
+            <div class="compare-card-text">
+              <a href="${courseData.video}" target="_blank" class="compare-card-video-link">
+                <svg width="24" height="24" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.498 2.667A3.001 3.001 0 0 0 21 0H3a3 3 0 0 0-2.498 2.667L0 9l.502 6.333A3 3 0 0 0 3 18h18a3 3 0 0 0 2.498-2.667L24 9l-.502-6.333ZM9 12.5V5.5l7 3.5-7 3.5Z" fill="#21272A"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        `;
+      }
+      
+      cardElement.innerHTML = `
+        <div class="compare-card-header">
+          <div class="compare-card-info">
+            <img src="${courseData.icon}" alt="아이콘" class="compare-card-icon">
+            <span class="compare-card-name">${courseData.name}</span>
+          </div>
+          <div class="compare-card-actions">
+            <button class="compare-card-close-btn" data-card-id="${cardId}">
+              <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="compare-card-content">
+          <div class="compare-card-row">
+            <span class="compare-card-label">교육 목표</span>
+            <div class="compare-card-text">
+              <p>${courseData.educationalGoal}</p>
+            </div>
+          </div>
+          <div class="compare-card-row">
+            <span class="compare-card-label">이수 학점</span>
+            <div class="compare-card-text">
+              <p>${courseData.credits}</p>
+            </div>
+          </div>
+          <div class="compare-card-row">
+            <span class="compare-card-label">과정 소개</span>
+            <div class="compare-card-text">
+              ${introductionHTML}
+            </div>
+          </div>
+          ${curriculumHTML}
+          ${videoHTML}
+        </div>
+      `;
+    }
 
     // Compare action button
     compareActionBtn.addEventListener('click', () => {
@@ -1035,16 +1363,255 @@
         return;
       }
       
-      // Close all cards first
-      const allCardsForCompare = document.querySelectorAll('.course-card');
-      allCardsForCompare.forEach(c => c.classList.remove('open'));
+      // Hide normal panel content and show expanded content
+      const normalContent = document.querySelector('.compare-panel-content');
+      const panelHeader = document.querySelector('.compare-panel-header');
+      const expandedContent = document.getElementById('compareExpandedContent');
+      const compareCard1 = document.getElementById('compareCard1');
+      const compareCard2 = document.getElementById('compareCard2');
       
-      // Open only the first selected card (single open)
-      if (selectedCourses[0]) {
-        selectedCourses[0].element.classList.add('open');
-        selectedCourses[0].element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Hide normal content and header, show expanded content in its place
+      if (normalContent) normalContent.style.display = 'none';
+      if (panelHeader) panelHeader.style.display = 'none';
+      if (expandedContent) {
+        expandedContent.style.display = 'flex';
+        expandedContent.style.flexDirection = 'column';
       }
+      
+      // Extract and render course data
+      let course1Data = null;
+      let course2Data = null;
+      
+      if (selectedCourses[0]) {
+        if (selectedCourses[0].element) {
+          course1Data = extractCourseData(selectedCourses[0].element);
+        } else if (selectedCourses[0].data) {
+          course1Data = selectedCourses[0].data;
+        }
+      }
+      
+      if (selectedCourses[1]) {
+        if (selectedCourses[1].element) {
+          course2Data = extractCourseData(selectedCourses[1].element);
+        } else if (selectedCourses[1].data) {
+          course2Data = selectedCourses[1].data;
+        }
+      }
+      
+      renderCourseCard(compareCard1, course1Data, 'compareCard1');
+      renderCourseCard(compareCard2, course2Data, 'compareCard2');
+      
+      // Add click handlers for close buttons
+      const closeBtn1 = compareCard1.querySelector('.compare-card-close-btn');
+      const closeBtn2 = compareCard2.querySelector('.compare-card-close-btn');
+      
+      if (closeBtn1 && selectedCourses[0]) {
+        closeBtn1.addEventListener('click', () => {
+          // Remove first course from selected courses
+          const courseId = selectedCourses[0].id;
+          if (courseId && !courseId.startsWith('external-')) {
+            const cardBtn = document.querySelector(`.course-card[data-course="${courseId}"] .compare-btn`);
+            if (cardBtn) cardBtn.classList.remove('selected');
+          }
+          selectedCourses.splice(0, 1);
+          // Update panel
+          updateComparePanel();
+          // Re-render cards
+          let newCourse1Data = null;
+          let newCourse2Data = null;
+          
+          if (selectedCourses[0]) {
+            if (selectedCourses[0].element) {
+              newCourse1Data = extractCourseData(selectedCourses[0].element);
+            } else if (selectedCourses[0].data) {
+              newCourse1Data = selectedCourses[0].data;
+            }
+          }
+          
+          if (selectedCourses[1]) {
+            if (selectedCourses[1].element) {
+              newCourse2Data = extractCourseData(selectedCourses[1].element);
+            } else if (selectedCourses[1].data) {
+              newCourse2Data = selectedCourses[1].data;
+            }
+          }
+          
+          renderCourseCard(compareCard1, newCourse1Data, 'compareCard1');
+          renderCourseCard(compareCard2, newCourse2Data, 'compareCard2');
+          // Re-attach handlers
+          attachCloseHandlers();
+        });
+      }
+      
+      if (closeBtn2 && selectedCourses[1]) {
+        closeBtn2.addEventListener('click', () => {
+          // Remove second course from selected courses
+          const courseId = selectedCourses[1].id;
+          if (courseId && !courseId.startsWith('external-')) {
+            const cardBtn = document.querySelector(`.course-card[data-course="${courseId}"] .compare-btn`);
+            if (cardBtn) cardBtn.classList.remove('selected');
+          }
+          selectedCourses.splice(1, 1);
+          // Update panel
+          updateComparePanel();
+          // Re-render cards
+          let newCourse1Data = null;
+          let newCourse2Data = null;
+          
+          if (selectedCourses[0]) {
+            if (selectedCourses[0].element) {
+              newCourse1Data = extractCourseData(selectedCourses[0].element);
+            } else if (selectedCourses[0].data) {
+              newCourse1Data = selectedCourses[0].data;
+            }
+          }
+          
+          if (selectedCourses[1]) {
+            if (selectedCourses[1].element) {
+              newCourse2Data = extractCourseData(selectedCourses[1].element);
+            } else if (selectedCourses[1].data) {
+              newCourse2Data = selectedCourses[1].data;
+            }
+          }
+          
+          renderCourseCard(compareCard1, newCourse1Data, 'compareCard1');
+          renderCourseCard(compareCard2, newCourse2Data, 'compareCard2');
+          // Re-attach handlers
+          attachCloseHandlers();
+        });
+      }
+      
+      // Helper function to attach close handlers
+      function attachCloseHandlers() {
+        const newCloseBtn1 = compareCard1.querySelector('.compare-card-close-btn');
+        const newCloseBtn2 = compareCard2.querySelector('.compare-card-close-btn');
+        
+        if (newCloseBtn1 && selectedCourses[0]) {
+          newCloseBtn1.addEventListener('click', () => {
+            const courseId = selectedCourses[0].id;
+            if (courseId && !courseId.startsWith('external-')) {
+              const cardBtn = document.querySelector(`.course-card[data-course="${courseId}"] .compare-btn`);
+              if (cardBtn) cardBtn.classList.remove('selected');
+            }
+            selectedCourses.splice(0, 1);
+            updateComparePanel();
+            
+            let newCourse1Data = null;
+            let newCourse2Data = null;
+            
+            if (selectedCourses[0]) {
+              if (selectedCourses[0].element) {
+                newCourse1Data = extractCourseData(selectedCourses[0].element);
+              } else if (selectedCourses[0].data) {
+                newCourse1Data = selectedCourses[0].data;
+              }
+            }
+            
+            if (selectedCourses[1]) {
+              if (selectedCourses[1].element) {
+                newCourse2Data = extractCourseData(selectedCourses[1].element);
+              } else if (selectedCourses[1].data) {
+                newCourse2Data = selectedCourses[1].data;
+              }
+            }
+            
+            renderCourseCard(compareCard1, newCourse1Data, 'compareCard1');
+            renderCourseCard(compareCard2, newCourse2Data, 'compareCard2');
+            attachCloseHandlers();
+          });
+        }
+        
+        if (newCloseBtn2 && selectedCourses[1]) {
+          newCloseBtn2.addEventListener('click', () => {
+            const courseId = selectedCourses[1].id;
+            if (courseId && !courseId.startsWith('external-')) {
+              const cardBtn = document.querySelector(`.course-card[data-course="${courseId}"] .compare-btn`);
+              if (cardBtn) cardBtn.classList.remove('selected');
+            }
+            selectedCourses.splice(1, 1);
+            updateComparePanel();
+            
+            let newCourse1Data = null;
+            let newCourse2Data = null;
+            
+            if (selectedCourses[0]) {
+              if (selectedCourses[0].element) {
+                newCourse1Data = extractCourseData(selectedCourses[0].element);
+              } else if (selectedCourses[0].data) {
+                newCourse1Data = selectedCourses[0].data;
+              }
+            }
+            
+            if (selectedCourses[1]) {
+              if (selectedCourses[1].element) {
+                newCourse2Data = extractCourseData(selectedCourses[1].element);
+              } else if (selectedCourses[1].data) {
+                newCourse2Data = selectedCourses[1].data;
+              }
+            }
+            
+            renderCourseCard(compareCard1, newCourse1Data, 'compareCard1');
+            renderCourseCard(compareCard2, newCourse2Data, 'compareCard2');
+            attachCloseHandlers();
+          });
+        }
+      }
+      
+      // Add expanded class to panel
+      comparePanel.classList.add('expanded');
+      
+      // Scroll to panel
+      comparePanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
     });
+    
+    // Collapse button
+    const compareCollapseBtn = document.getElementById('compareCollapseBtn');
+    const compareResetBtnExpanded = document.getElementById('compareResetBtnExpanded');
+    
+    if (compareCollapseBtn) {
+      compareCollapseBtn.addEventListener('click', () => {
+        const normalContent = document.querySelector('.compare-panel-content');
+        const panelHeader = document.querySelector('.compare-panel-header');
+        const expandedContent = document.getElementById('compareExpandedContent');
+        
+        // Show normal content and header, hide expanded content
+        if (normalContent) normalContent.style.display = 'flex';
+        if (panelHeader) panelHeader.style.display = 'flex';
+        if (expandedContent) expandedContent.style.display = 'none';
+        
+        comparePanel.classList.remove('expanded');
+      });
+    }
+    
+    if (compareResetBtnExpanded) {
+      compareResetBtnExpanded.addEventListener('click', () => {
+        // Clear all selections
+        selectedCourses.forEach(course => {
+          if (course.id && !course.id.startsWith('external-')) {
+            const cardBtn = document.querySelector(`.course-card[data-course="${course.id}"] .compare-btn`);
+            if (cardBtn) cardBtn.classList.remove('selected');
+          }
+        });
+        selectedCourses = [];
+        // Clear localStorage
+        localStorage.removeItem('compareCourses');
+        // Update panel to show empty slots (but keep panel visible)
+        updateComparePanel();
+        // Keep panel visible even when no courses are selected
+        comparePanel.classList.add('active');
+        // Collapse expanded view
+        const normalContent = document.querySelector('.compare-panel-content');
+        const panelHeader = document.querySelector('.compare-panel-header');
+        const expandedContent = document.getElementById('compareExpandedContent');
+        
+        // Show normal content and header, hide expanded content
+        if (normalContent) normalContent.style.display = 'flex';
+        if (panelHeader) panelHeader.style.display = 'flex';
+        if (expandedContent) expandedContent.style.display = 'none';
+        
+        comparePanel.classList.remove('expanded');
+      });
+    }
   </script>
 </body>
 </html>
