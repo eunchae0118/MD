@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학사안내 - 신한대학교 마이크로디그리대학</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="css/so_style.css">
+    <style>
+        /* 학사안내 페이지 전용 스타일 */
+        .hacksa-page {
+            gap: 0;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        /* 학사안내 히어로 배너 */
+        .hacksa-hero {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hacksa-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('so_img/isu2.jpg') center/cover no-repeat;
+        }
+
+        .hacksa-hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hacksa-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hacksa-hero-title {
+            font-size: 46px;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 학사안내 컨텐츠 섹션 */
+        .hacksa-content-section {
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 100px 0 150px;
+            background: var(--white);
+        }
+
+        .hacksa-content-inner {
+            padding: 0 320px;
+        }
+
+        /* 페이지 헤더 */
+        .hacksa-page-header {
+            padding: 10px 0;
+            margin-bottom: 70px;
+        }
+
+        .hacksa-category {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1977C9;
+            margin-bottom: 10px;
+            line-height: 1.45;
+        }
+
+        .hacksa-page-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        /* 섹션 제목 스타일 */
+        .hacksa-section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1977C9;
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        /* 테이블 스타일 */
+        .hacksa-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px;
+            border-top: 2px solid #8C8C8C;
+            margin-bottom: 15px;
+        }
+
+        .hacksa-table thead {
+            background: #F5F5F5;
+        }
+
+        .hacksa-table th {
+            padding: 20px 10px;
+            font-weight: 700;
+            color: var(--black);
+            text-align: center;
+            border-bottom: 1px solid #8C8C8C;
+            border-right: 1px solid #8C8C8C;
+        }
+
+        .hacksa-table th:last-child {
+            border-right: none;
+        }
+
+        .hacksa-table td {
+            padding: 25px 20px;
+            font-size: 22px;
+            text-align: center;
+            border-bottom: 1px solid #8C8C8C;
+            border-right: 1px solid #8C8C8C;
+            color: var(--black);
+            vertical-align: middle;
+            line-height: 1.45;
+        }
+
+        .hacksa-table td:last-child {
+            border-right: none;
+        }
+
+        /* 테이블 노트 */
+        .hacksa-table-note {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+
+        .hacksa-table-desc {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .hacksa-table-desc a {
+            text-decoration: underline;
+        }
+
+        /* 구분선 섹션 */
+        .hacksa-section {
+            margin-bottom: 70px;
+        }
+
+        .hacksa-section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 텍스트 섹션 */
+        .hacksa-text-section {
+            margin-bottom: 70px;
+        }
+
+        .hacksa-text-content {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .hacksa-text-content p {
+            margin-bottom: 0;
+        }
+
+        .hacksa-text-indent {
+            padding-left: 12px;
+        }
+
+        /* 과정소개 섹션 */
+        .hacksa-intro-section {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .hacksa-intro-header {
+            margin-bottom: 30px;
+        }
+
+        .hacksa-intro-desc {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.45;
+            margin-bottom: 30px;
+        }
+
+        /* 파일 다운로드 버튼 */
+        .hacksa-file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px 30px;
+        }
+
+        .hacksa-file-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 50px;
+            padding: 10px 20px;
+            background: var(--white);
+            border: 1px solid #1977C9;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1977C9;
+            transition: all 0.3s;
+        }
+
+        .hacksa-file-btn:hover {
+            background: #e8f4fc;
+        }
+
+        .hacksa-file-btn svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1600px) {
+            .hacksa-content-inner {
+                padding: 0 160px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hacksa-content-inner {
+                padding: 0 60px;
+            }
+
+            .hacksa-table {
+                font-size: 16px;
+            }
+
+            .hacksa-table td {
+                font-size: 18px;
+                padding: 20px 15px;
+            }
+
+            .hacksa-file-list {
+                gap: 20px;
+            }
+
+            .hacksa-file-btn {
+                gap: 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hacksa-page {
+                padding-top: 0;
+            }
+
+            .hacksa-hero {
+                height: 150px;
+            }
+
+            .hacksa-hero-title {
+                font-size: 28px;
+            }
+
+            .hacksa-content-section {
+                padding: 40px 0 60px;
+            }
+
+            .hacksa-content-inner {
+                padding: 0 24px;
+            }
+
+            .hacksa-page-header {
+                margin-bottom: 40px;
+            }
+
+            .hacksa-category {
+                font-size: 16px;
+            }
+
+            .hacksa-page-title {
+                font-size: 22px;
+            }
+
+            .hacksa-section-title {
+                font-size: 18px;
+            }
+
+            .hacksa-section {
+                margin-bottom: 50px;
+            }
+
+            .hacksa-table {
+                font-size: 14px;
+            }
+
+            .hacksa-table th {
+                padding: 15px 8px;
+            }
+
+            .hacksa-table td {
+                font-size: 14px;
+                padding: 15px 10px;
+            }
+
+            .hacksa-table-note {
+                font-size: 16px;
+            }
+
+            .hacksa-table-desc {
+                font-size: 14px;
+            }
+
+            .hacksa-text-content {
+                font-size: 14px;
+            }
+
+            .hacksa-intro-desc {
+                font-size: 14px;
+            }
+
+            .hacksa-file-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hacksa-file-btn {
+                width: 100%;
+                justify-content: space-between;
+                gap: 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!-- Header Wrapper -->
+  <div class="header-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="so_index.html" class="logo">
+            <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="intro-start.html">대학소개</a></li>
+            <li><a href="#" class="active">학사정보</a></li>
+            <li><a href="curriculum-recommend.html">교육과정</a></li>
+            <li><a href="md-research-member.html">연구센터</a></li>
+            <li><a href="#">커뮤니티</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <button class="icon-btn" aria-label="검색">
+            <img src="share/search.png" alt="검색">
+          </button>
+          <button class="icon-btn" aria-label="언어 선택">
+            <img src="share/global.png" alt="언어">
+          </button>
+          <button class="icon-btn" aria-label="사용자">
+            <img src="share/user.png" alt="사용자">
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Header Dropdown Menu -->
+    <div class="header-dropdown">
+      <div class="header-dropdown-inner">
+        <div class="dropdown-spacer"></div>
+        <div class="dropdown-menus">
+          <div class="dropdown-column">
+            <a href="intro-start.html">마이크로디그리</a>
+            <a href="intro_education.html">교육목표</a>
+            <a href="intro_professor.html">교수소개</a>
+            <a href="intro_location.html">찾아오는길</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="so_isu.html">이수체계</a>
+            <a href="so_hacksa.html">학사안내</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="curriculum-recommend.html">추천학과</a>
+            <a href="curriculum-intro.html">교과소개</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="md-research-member.html">MD 연구센터</a>
+            <a href="sw-research-member.html">SW 기초교육 연구센터</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">학생</a>
+            <a href="#">교원</a>
+            <a href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="dropdown-right-spacer"></div>
+      </div>
+      <div class="dropdown-dividers">
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  </div>
+
+        <!-- Hero Banner -->
+        <section class="hacksa-hero">
+            <div class="hacksa-hero-bg"></div>
+            <div class="hacksa-hero-content">
+                <h1 class="hacksa-hero-title">학사정보</h1>
+            </div>
+        </section>
+
+  <!-- Tab Menu (Breadcrumb) -->
+  <div class="tab-menu">
+    <div class="tab-menu-inner">
+      <div class="tab-home">
+        <img src="share/home.png" alt="홈">
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown1">
+        <span>학사정보</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="so_isu.html">이수체계</a>
+          <a href="so_hacksa.html" class="active">학사안내</a>
+        </div>
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown2">
+        <span>학사안내</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="so_isu.html">이수체계</a>
+          <a href="so_hacksa.html" class="active">학사안내</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <main class="main-content hacksa-page">
+
+        <!-- Content Section -->
+        <section class="hacksa-content-section">
+            <div class="hacksa-content-inner">
+                <!-- Page Header -->
+                <div class="hacksa-page-header">
+                    <span class="hacksa-category">신한대학교</span>
+                    <h2 class="hacksa-page-title">마이크로디그리 학사안내</h2>
+                </div>
+
+                <!-- 수강신청 섹션 -->
+                <div class="hacksa-section">
+                    <h3 class="hacksa-section-title">수강신청</h3>
+                    <table class="hacksa-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">SELF-DESIGNED CLASS</th>
+                                <th style="width: 50%;">TETRIS CLASS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>정규학기 수강신청 기간 내<br>종합정보시스템을 통해 수강 신청</td>
+                                <td>별도의 수강신청 절차를 통해<br>선발된 학생만 수강 가능</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="hacksa-table-note">※ 유의사항</div>
+                    <div class="hacksa-table-desc">
+                        <p>- 마이크로디그리전공 교과목은 학기별 개설 교과목이 다를 수 있으며, 계절학기를 운영하지 않습니다.</p>
+                        <p>- 마이크로디그리전공 교과목 성격에 따라 성적 평가방식, 수업 운영방식, 개설 캠퍼스 등이 상이하니 수강신청 전 <a href="#">수업계획서를 반드시 확인하여 주시기 바랍니다.</a></p>
+                    </div>
+                </div>
+
+                <!-- 분반 및 폐강기준 섹션 -->
+                <div class="hacksa-section">
+                    <h3 class="hacksa-section-title">분반 및 폐강기준</h3>
+                    <table class="hacksa-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">분반기준</th>
+                                <th style="width: 50%;">폐강기준</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>25명</td>
+                                <td>10명 미만</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="hacksa-table-desc">
+                        <p>※ 과제참여형 교육과정(TETRIS CLASS)의 분반 기준인원은 별도 기준을 따름.</p>
+                    </div>
+                </div>
+
+                <!-- 성적평가 섹션 -->
+                <div class="hacksa-section">
+                    <h3 class="hacksa-section-title">성적평가</h3>
+                    <table class="hacksa-table">
+                        <thead>
+                            <tr>
+                                <th>성적평가방식: 절대평가</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>※성적평가는 백분위(A~F) 또는 P/N 과목별 상이하므로, 수업계획서 확인</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 학위수여 섹션 -->
+                <div class="hacksa-text-section">
+                    <h3 class="hacksa-section-title">학위수여</h3>
+                    <div class="hacksa-text-content">
+                        <p>- 마이크로디그리전공별 이수요건 충족 시 이수 인정</p>
+                        <p>- 마이크로디그리 단일 전공 내 21학점 이상 이수 시 부전공 인정</p>
+                        <p class="hacksa-text-indent">※ 이수요건을 미충족 하여도 기 취득한 학점은 졸업학점으로 인정</p>
+                    </div>
+                </div>
+
+                <!-- 이수증명 섹션 -->
+                <div class="hacksa-text-section">
+                    <h3 class="hacksa-section-title">이수증명</h3>
+                    <div class="hacksa-text-content">
+                        <p>- 마이크로디그리 교육과정 이수내용 증명서 표기</p>
+                        <p class="hacksa-text-indent">※ 학위증, 졸업증명서, 성적증명서, 마이크로디그리전공 이수증 발급</p>
+                    </div>
+                </div>
+
+                <!-- 과정소개 섹션 -->
+                <div class="hacksa-intro-section">
+                    <div class="hacksa-intro-header">
+                        <span class="hacksa-category">신한대학교</span>
+                        <h2 class="hacksa-page-title">마이크로디그리 과정소개</h2>
+                    </div>
+                    <div class="hacksa-intro-desc">
+                        <p>마이크로디그리 교육과정은 학생설계 선택형 과정인 SELF-DESIGNED CLASS와 고정된 시간표 및 강의실을 탈피한 과제 중심형 TETRIS CLASS로 구성되며,</p>
+                        <p>2022학년도 신입학생부터 본교의 졸업학점 130학점 중 마이크로디그리 교육과정 21~30학점 이상 이수하여야 합니다.</p>
+                        <p>※ 「졸업에 관한 규정」 (2025.03.05. 개정) 참조.</p>
+                    </div>
+
+                    <!-- 파일 다운로드 -->
+                    <div class="hacksa-file-list">
+                        <a href="https://md.shinhan.ac.kr/sites/md/ebook/" class="hacksa-file-btn">
+                            <span>학사안내서 E-BOOK.pdf</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#1977C9" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 10l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 15V3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <span class="divider"></span>
+          <a href="#">영상정보처리기기관리방침</a>
+          <span class="divider"></span>
+          <a href="#">이메일무단수집거부</a>
+          <span class="divider"></span>
+          <a href="intro_location.html">찾아오시는 길</a>
+        </div>
+        <div class="footer-select">
+          <select id="relatedSites">
+            <option value="">관련사이트</option>
+            <option value="https://www.shinhan.ac.kr">신한대학교</option>
+            <option value="https://stins.shinhan.ac.kr/irj/portal">종합정보시스템</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-logo">
+          <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        </div>
+        <div class="footer-info">
+          <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학</p>
+          <p>대표전화 : 031-870-3710</p>
+          <p class="copyright">COPYRIGHT 2019. SHINHAN UNIVERSITY. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick Menu -->
+  <div class="quick-menu" id="quickMenu">
+    <div class="quick-menu-toggle" id="quickMenuToggle">
+      <img src="share/trans.png" alt="Quick menu icon" class="swap-icon">
+      <span class="quick-menu-text">Quick menu</span>
+    </div>
+    <div class="quick-menu-panel" id="quickMenuPanel">
+      <a href="https://www.shinhan.ac.kr" target="_blank">신한대학교</a>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank">종합정보시스템</a>
+      <a href="#">공지사항</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Top Button -->
+  <button class="top-btn" id="topBtn" aria-label="맨 위로">
+    <img src="share/up_white.png" alt="위로 가기">
+  </button>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <div class="search-header">
+        <h2 class="search-title">통합검색</h2>
+        <button class="search-close-btn" id="searchCloseBtn">
+          <img src="share/close.png" alt="닫기">
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <input type="text" class="search-input" placeholder="검색어를 입력해주세요">
+        <button class="search-submit-btn">
+          <img src="share/search_blue.png" alt="검색">
+        </button>
+      </div>
+      <div class="search-keywords">
+        <h3 class="search-keywords-title">추천 검색어</h3>
+        <div class="search-tags">
+          <a href="#" class="search-tag"># 졸업요건</a>
+          <a href="curriculum-recommend.html" class="search-tag"># 학과별 추천</a>
+          <a href="curriculum-intro.html" class="search-tag"># 과목 소개</a>
+          <a href="intro-start.html" class="search-tag"># 마이크로디그리란?</a>
+          <a href="#" class="search-tag"># 신청방법</a>
+          <a href="#" class="search-tag"># FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Quick Menu Toggle
+    const quickMenu = document.getElementById('quickMenu');
+    const quickMenuToggle = document.getElementById('quickMenuToggle');
+    
+    if (quickMenuToggle) {
+      quickMenuToggle.addEventListener('click', function() {
+        quickMenu.classList.toggle('open');
+      });
+    }
+
+    // Top Button
+    const topBtn = document.getElementById('topBtn');
+    
+    if (topBtn) {
+      topBtn.addEventListener('click', function() {
+        topBtn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(function() {
+          topBtn.classList.remove('active');
+        }, 500);
+      });
+    }
+
+    // Search Modal
+    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
+    const searchModal = document.getElementById('searchModal');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+    const searchInput = document.querySelector('.search-input');
+    
+    searchBtn.addEventListener('click', function() {
+      searchModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    searchCloseBtn.addEventListener('click', function() {
+      searchModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === searchModal) {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // 드롭다운 열 위치를 헤더 메뉴에 맞춤
+    function alignDropdownToNav() {
+      const navItems = document.querySelectorAll('.nav-list li');
+      const dropdownColumns = document.querySelectorAll('.dropdown-column');
+      const dropdownDividers = document.querySelectorAll('.dropdown-divider');
+      
+      // 먼저 모든 transform 리셋
+      dropdownColumns.forEach(column => {
+        column.style.transform = 'none';
+      });
+      
+      // 리플로우 강제 (브라우저가 위치를 다시 계산하도록)
+      void document.body.offsetHeight;
+      
+      // 각 열의 위치 조정
+      navItems.forEach((navItem, index) => {
+        if (dropdownColumns[index]) {
+          const navRect = navItem.getBoundingClientRect();
+          const navCenter = navRect.left + navRect.width / 2;
+          
+          const column = dropdownColumns[index];
+          const columnRect = column.getBoundingClientRect();
+          const columnCenter = columnRect.left + columnRect.width / 2;
+          
+          const offset = navCenter - columnCenter;
+          column.style.transform = 'translateX(' + offset + 'px)';
+        }
+      });
+      
+      // 구분선 위치 설정 (헤더 메뉴 사이의 정확한 중간)
+      for (let i = 0; i < dropdownDividers.length; i++) {
+        const currentNav = navItems[i];
+        const nextNav = navItems[i + 1];
+        
+        if (currentNav && nextNav) {
+          const currentRect = currentNav.getBoundingClientRect();
+          const nextRect = nextNav.getBoundingClientRect();
+          
+          // 현재 메뉴의 오른쪽 끝과 다음 메뉴의 왼쪽 시작의 중간
+          const dividerX = (currentRect.right + nextRect.left) / 2;
+          
+          dropdownDividers[i].style.left = dividerX + 'px';
+        }
+      }
+    }
+    
+    // 페이지 로드 시 정렬
+    window.addEventListener('load', alignDropdownToNav);
+    
+    // 리사이즈 시 디바운스 적용하여 정렬
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(alignDropdownToNav, 100);
+    });
+    
+    // Header Dropdown Hover
+    const navListItems = document.querySelectorAll('.nav-list li');
+    const dropdownColumns = document.querySelectorAll('.dropdown-column');
+    
+    dropdownColumns.forEach((column, index) => {
+      column.addEventListener('mouseenter', function() {
+        if (navListItems[index]) navListItems[index].classList.add('dropdown-hover');
+      });
+      column.addEventListener('mouseleave', function() {
+        if (navListItems[index]) navListItems[index].classList.remove('dropdown-hover');
+      });
+    });
+
+    // Related Sites Select
+    const relatedSites = document.getElementById('relatedSites');
+    if (relatedSites) {
+      relatedSites.addEventListener('change', function() {
+        if (this.value) {
+          window.open(this.value, '_blank');
+          this.value = '';
+        }
+      });
+    }
+
+    // Tab Dropdown
+    const tabDropdowns = document.querySelectorAll('.tab-dropdown');
+    tabDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tabDropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open');
+        });
+        dropdown.classList.toggle('open');
+      });
+    });
+    
+    document.addEventListener('click', (e) => {
+      tabDropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+    <script src="so_script.js"></script>
+</body>
+</html>
+

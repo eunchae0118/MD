@@ -15,7 +15,7 @@
     <header class="header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="intro-start.html" class="logo">
+          <a href="so_index.html" class="logo">
             <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
           </a>
         </div>
@@ -50,8 +50,8 @@
           <div class="dropdown-column">
             <a href="intro-start.html">마이크로디그리</a>
             <a href="intro_education.html">교육목표</a>
-            <a href="intro_professor.html">교수소개</a>
-            <a href="intro_location.html">찾아오는길</a>
+            <a href="#">교수소개</a>
+            <a href="intro_location.html">찾아오시는길</a>
           </div>
           <div class="dropdown-column">
             <a href="#">이수체계</a>
@@ -109,10 +109,10 @@
         <span>마이크로디그리</span>
         <img src="share/down.png" alt="선택" class="tab-arrow">
         <div class="tab-dropdown-menu">
-          <a href="intro-start.html" class="active">마이크로디그리</a>
+          <a href="intro-start.html">마이크로디그리란?</a>
           <a href="intro_education.html">교육목표</a>
-          <a href="intro_professor.html">교수소개</a>
-          <a href="intro_location.html">찾아오는길</a>
+          <a href="#">교수소개</a>
+          <a href="intro_location.html">찾아오시는길</a>
         </div>
       </div>
       <div class="tab-item tab-dropdown" id="tabDropdown3">
@@ -270,7 +270,7 @@
             <h3 class="modal-title" id="modalTitle"></h3>
             <div class="modal-video-container">
                 <video id="modalVideo" controls>
-                    <source src="" type="video/mp4">
+                    <source src="" type="intro_video/mp4">
                 </video>
             </div>
         </div>
@@ -287,7 +287,7 @@
           <span class="divider"></span>
           <a href="#">이메일무단수집거부</a>
           <span class="divider"></span>
-          <a href="intro_location.html">찾아오시는 길</a>
+          <a href="#">찾아오시는 길</a>
         </div>
         <div class="footer-select">
           <select id="relatedSites">
@@ -369,57 +369,7 @@
     const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
     const searchModal = document.getElementById('searchModal');
     const searchCloseBtn = document.getElementById('searchCloseBtn');
-    const searchInput = searchModal ? searchModal.querySelector('.search-input') : null;
-    const searchSubmitBtn = searchModal ? searchModal.querySelector('.search-submit-btn') : null;
-    
-    // 검색 기능
-    function performSearch(query) {
-      if (!query || query.trim() === '') return;
-      
-      const searchTerm = query.toLowerCase().trim();
-      let targetPage = null;
-      
-      // 검색어 매칭
-      if (searchTerm.includes('마이크로디그리') || searchTerm.includes('마이크로')) {
-        targetPage = 'intro-start.html';
-      } else if (searchTerm.includes('교육목표') || searchTerm.includes('목표')) {
-        targetPage = 'intro_education.html';
-      } else if (searchTerm.includes('구성원')) {
-        targetPage = 'intro_member.html';
-      } else if (searchTerm.includes('주임교수') || searchTerm.includes('전공 주임')) {
-        targetPage = 'intro_professor.html';
-      } else if (searchTerm.includes('전임교수') || searchTerm.includes('전임')) {
-        targetPage = 'intro_fulltime.html';
-      } else if (searchTerm.includes('연구교수') || searchTerm.includes('연구')) {
-        targetPage = 'intro_research.html';
-      } else if (searchTerm.includes('교수')) {
-        targetPage = 'intro_professor.html';
-      } else if (searchTerm.includes('인사말')) {
-        targetPage = 'intro_greeting.html';
-      } else if (searchTerm.includes('홍보영상') || searchTerm.includes('영상')) {
-        targetPage = 'intro_video.html';
-      } else if (searchTerm.includes('연혁')) {
-        targetPage = 'intro_history.html';
-      } else if (searchTerm.includes('찾아오는길') || searchTerm.includes('찾아오시는길') || searchTerm.includes('위치') || searchTerm.includes('오시는길')) {
-        targetPage = 'intro_location.html';
-      } else if (searchTerm.includes('학과') || searchTerm.includes('추천')) {
-        targetPage = 'curriculum-recommend.html';
-      } else if (searchTerm.includes('교과') || searchTerm.includes('과목')) {
-        targetPage = 'curriculum-intro.html';
-      } else if (searchTerm.includes('md 연구센터') || searchTerm.includes('md연구센터')) {
-        targetPage = 'md-research-member.html';
-      } else if (searchTerm.includes('sw 연구센터') || searchTerm.includes('sw연구센터')) {
-        targetPage = 'sw-research-member.html';
-      } else if (searchTerm.includes('연구센터')) {
-        targetPage = 'md-research-member.html';
-      }
-      
-      if (targetPage) {
-        window.location.href = targetPage;
-      } else {
-        alert('검색 결과를 찾을 수 없습니다. 다른 검색어를 입력해주세요.');
-      }
-    }
+    const searchInput = document.querySelector('.search-input');
     
     if (searchBtn) {
       searchBtn.addEventListener('click', function() {
@@ -443,22 +393,6 @@
         if (e.target === searchModal) {
           searchModal.classList.remove('active');
           document.body.style.overflow = '';
-        }
-      });
-    }
-    
-    // 검색 버튼 클릭 이벤트
-    if (searchSubmitBtn && searchInput) {
-      searchSubmitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        performSearch(searchInput.value);
-      });
-      
-      // Enter 키 이벤트
-      searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          performSearch(searchInput.value);
         }
       });
     }
@@ -577,28 +511,22 @@
     const modalOverlay = document.querySelector('.modal-overlay');
     const modalVideo = document.getElementById('modalVideo');
     const modalTitle = document.getElementById('modalTitle');
-    const videoCards = document.querySelectorAll('.video-card');
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
 
-    // 영상 카드 클릭 시 모달 열기
-    videoCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const videoSrc = this.dataset.video;
-            const title = this.querySelector('.video-card-title').textContent;
+    // 썸네일 클릭 시 모달 열기
+    videoThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            const card = this.closest('.video-card');
+            const videoSrc = card.dataset.video;
+            const title = card.querySelector('.video-card-title').textContent;
 
             modalTitle.textContent = title;
             
             if (videoSrc) {
-                // 영상 경로 설정 및 재생
-                const source = modalVideo.querySelector('source');
-                source.src = videoSrc;
+                // 로컬 영상 파일 연결 (특수문자 인코딩)
+                modalVideo.querySelector('source').src = encodeURI(videoSrc);
                 modalVideo.load();
-                
-                // 영상 로드 완료 후 재생
-                modalVideo.addEventListener('loadeddata', function() {
-                    modalVideo.play().catch(function(error) {
-                        console.log('영상 재생 오류:', error);
-                    });
-                }, { once: true });
+                modalVideo.play();
             }
             
             videoModal.classList.add('active');

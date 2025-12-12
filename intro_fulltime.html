@@ -15,7 +15,7 @@
     <header class="header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="intro-start.html" class="logo">
+          <a href="so_index.html" class="logo">
             <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
           </a>
         </div>
@@ -54,8 +54,8 @@
             <a href="intro_location.html">찾아오는길</a>
           </div>
           <div class="dropdown-column">
-            <a href="#">이수체계</a>
-            <a href="#">학사안내</a>
+            <a href="so_isu.html">이수체계</a>
+            <a href="so_hacksa.html">학사안내</a>
           </div>
           <div class="dropdown-column">
             <a href="curriculum-recommend.html">추천학과</a>
@@ -106,19 +106,21 @@
         </div>
       </div>
       <div class="tab-item tab-dropdown" id="tabDropdown2">
-        <span>교수소개</span>
+        <span>교육목표</span>
         <img src="share/down.png" alt="선택" class="tab-arrow">
         <div class="tab-dropdown-menu">
-          <a href="intro-start.html">마이크로디그리</a>
-          <a href="intro_education.html">교육목표</a>
-          <a href="intro_professor.html" class="active">교수소개</a>
-          <a href="intro_location.html">찾아오는길</a>
+          <a href="intro-start.html">마이크로디그리란?</a>
+          <a href="intro_education.html" class="active">교육목표</a>
+          <a href="#">교수소개</a>
+          <a href="intro_location.html">찾아오시는길</a>
         </div>
       </div>
       <div class="tab-item tab-dropdown" id="tabDropdown3">
         <span>전임교수</span>
         <img src="share/down.png" alt="선택" class="tab-arrow">
         <div class="tab-dropdown-menu">
+          <a href="intro_education.html">목표소개</a>
+          <a href="intro_member.html">구성원</a>
           <a href="intro_professor.html">전공 주임교수</a>
           <a href="intro_fulltime.html" class="active">전임교수</a>
           <a href="intro_research.html">연구교수</a>
@@ -210,7 +212,7 @@
           <span class="divider"></span>
           <a href="#">이메일무단수집거부</a>
           <span class="divider"></span>
-          <a href="intro_location.html">찾아오시는 길</a>
+          <a href="#">찾아오시는 길</a>
         </div>
         <div class="footer-select">
           <select id="relatedSites">
@@ -238,7 +240,7 @@
   <!-- Search Modal -->
   <div class="search-modal" id="searchModal">
     <div class="search-modal-content">
-      <div class="search-header">
+      <div class="search-modal-header">
         <h2 class="search-title">통합검색</h2>
         <button class="search-close-btn" id="searchCloseBtn">
           <img src="share/close.png" alt="닫기">
@@ -294,56 +296,64 @@
     const searchCloseBtn = document.getElementById('searchCloseBtn');
     const searchInput = searchModal ? searchModal.querySelector('.search-input') : null;
     const searchSubmitBtn = searchModal ? searchModal.querySelector('.search-submit-btn') : null;
-    
-    // 검색 기능
-    function performSearch(query) {
-      if (!query || query.trim() === '') return;
-      
-      const searchTerm = query.toLowerCase().trim();
-      let targetPage = null;
-      
-      // 검색어 매칭
-      if (searchTerm.includes('마이크로디그리') || searchTerm.includes('마이크로')) {
-        targetPage = 'intro-start.html';
-      } else if (searchTerm.includes('교육목표') || searchTerm.includes('목표')) {
-        targetPage = 'intro_education.html';
-      } else if (searchTerm.includes('구성원')) {
-        targetPage = 'intro_member.html';
-      } else if (searchTerm.includes('주임교수') || searchTerm.includes('전공 주임')) {
-        targetPage = 'intro_professor.html';
-      } else if (searchTerm.includes('전임교수') || searchTerm.includes('전임')) {
-        targetPage = 'intro_fulltime.html';
-      } else if (searchTerm.includes('연구교수') || searchTerm.includes('연구')) {
-        targetPage = 'intro_research.html';
-      } else if (searchTerm.includes('교수')) {
-        targetPage = 'intro_professor.html';
-      } else if (searchTerm.includes('인사말')) {
-        targetPage = 'intro_greeting.html';
-      } else if (searchTerm.includes('홍보영상') || searchTerm.includes('영상')) {
-        targetPage = 'intro_video.html';
-      } else if (searchTerm.includes('연혁')) {
-        targetPage = 'intro_history.html';
-      } else if (searchTerm.includes('찾아오는길') || searchTerm.includes('찾아오시는길') || searchTerm.includes('위치') || searchTerm.includes('오시는길')) {
-        targetPage = 'intro_location.html';
-      } else if (searchTerm.includes('학과') || searchTerm.includes('추천')) {
-        targetPage = 'curriculum-recommend.html';
-      } else if (searchTerm.includes('교과') || searchTerm.includes('과목')) {
-        targetPage = 'curriculum-intro.html';
-      } else if (searchTerm.includes('md 연구센터') || searchTerm.includes('md연구센터')) {
-        targetPage = 'md-research-member.html';
-      } else if (searchTerm.includes('sw 연구센터') || searchTerm.includes('sw연구센터')) {
-        targetPage = 'sw-research-member.html';
-      } else if (searchTerm.includes('연구센터')) {
-        targetPage = 'md-research-member.html';
-      }
-      
-      if (targetPage) {
-        window.location.href = targetPage;
-      } else {
-        alert('검색 결과를 찾을 수 없습니다. 다른 검색어를 입력해주세요.');
-      }
+
+    function performSearch() {
+        const query = searchInput.value.toLowerCase();
+        if (query.includes('졸업요건')) {
+            window.location.href = '#';
+        } else if (query.includes('학과별 추천')) {
+            window.location.href = 'curriculum-recommend.html';
+        } else if (query.includes('과목 소개')) {
+            window.location.href = 'curriculum-intro.html';
+        } else if (query.includes('마이크로디그리란')) {
+            window.location.href = 'intro-start.html';
+        } else if (query.includes('신청방법')) {
+            window.location.href = '#';
+        } else if (query.includes('faq')) {
+            window.location.href = '#';
+        } else if (query.includes('교수소개') || query.includes('교수')) {
+            window.location.href = 'intro_professor.html';
+        } else if (query.includes('교육목표') || query.includes('목표소개')) {
+            window.location.href = 'intro_education.html';
+        } else if (query.includes('찾아오는길') || query.includes('오시는길')) {
+            window.location.href = 'intro_location.html';
+        } else if (query.includes('인사말')) {
+            window.location.href = 'intro_greeting.html';
+        } else if (query.includes('홍보영상')) {
+            window.location.href = 'intro_video.html';
+        } else if (query.includes('연혁')) {
+            window.location.href = 'intro_history.html';
+        } else if (query.includes('전임교수')) {
+            window.location.href = 'intro_fulltime.html';
+        } else if (query.includes('연구교수')) {
+            window.location.href = 'intro_research.html';
+        } else if (query.includes('구성원')) {
+            window.location.href = 'intro_member.html';
+        } else if (query.includes('md 연구센터') || query.includes('md연구센터')) {
+            window.location.href = 'md-research-member.html';
+        } else if (query.includes('sw 기초교육 연구센터') || query.includes('sw연구센터')) {
+            window.location.href = 'sw-research-member.html';
+        } else if (query.includes('이수체계')) {
+            window.location.href = 'so_isu.html';
+        } else if (query.includes('학사안내')) {
+            window.location.href = 'so_hacksa.html';
+        } else {
+            alert('검색 결과가 없습니다.');
+        }
     }
-    
+
+    if (searchSubmitBtn) {
+        searchSubmitBtn.addEventListener('click', performSearch);
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+
     if (searchBtn) {
       searchBtn.addEventListener('click', function() {
         searchModal.classList.add('active');
@@ -366,22 +376,6 @@
         if (e.target === searchModal) {
           searchModal.classList.remove('active');
           document.body.style.overflow = '';
-        }
-      });
-    }
-    
-    // 검색 버튼 클릭 이벤트
-    if (searchSubmitBtn && searchInput) {
-      searchSubmitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        performSearch(searchInput.value);
-      });
-      
-      // Enter 키 이벤트
-      searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          performSearch(searchInput.value);
         }
       });
     }

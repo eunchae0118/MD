@@ -49,7 +49,6 @@
     height: 424px;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
 }
 
 .video-thumbnail {
