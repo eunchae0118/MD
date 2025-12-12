@@ -1,0 +1,203 @@
+/* 홍보영상 페이지 스타일 */
+
+.video-content {
+    width: 1920px;
+    padding: 100px 0 150px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* 타이틀 섹션 */
+.video-header {
+    width: 1280px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.video-title {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: #000;
+    margin: 0 0 30px 0;
+}
+
+.video-desc {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.45;
+    color: #000;
+    margin: 0;
+}
+
+/* 영상 그리드 */
+.video-grid {
+    width: 1280px;
+    display: grid;
+    grid-template-columns: repeat(2, 628px);
+    gap: 48px 24px;
+}
+
+/* 영상 카드 */
+.video-card {
+    width: 628px;
+    height: 424px;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-thumbnail {
+    width: 628px;
+    height: 353px;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 플레이 아이콘 */
+.video-thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 85px;
+    background: rgba(255, 0, 0, 0.9);
+    border-radius: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+    transition: transform 0.2s, background-color 0.2s;
+    z-index: 1;
+}
+
+.video-thumbnail:hover::after {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.video-card-title {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.45;
+    color: #000;
+    margin: 0;
+    margin-top: 14px;
+}
+
+.video-card-date {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.45;
+    color: #8c8c8c;
+    margin: 0;
+    margin-top: 6px;
+}
+
+.video-thumbnail {
+    cursor: pointer;
+}
+
+.video-thumbnail img {
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+    transform: scale(1.05);
+}
+
+/* 영상 모달 */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 10000;
+    max-width: 1200px;
+    width: 90%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 80px 100px;
+    box-sizing: border-box;
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.modal-close svg {
+    width: 36px;
+    height: 36px;
+}
+
+.modal-close:hover {
+    opacity: 0.7;
+}
+
+.modal-title {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #000;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+.modal-video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.modal-video-container iframe,
+.modal-video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+

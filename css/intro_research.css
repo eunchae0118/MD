@@ -1,0 +1,33 @@
+/* Research Professor Page Styles */
+
+/* Main Content */
+.research-content {
+    width: 1920px;
+    margin: 0 auto;
+    padding: 100px 320px 150px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 70px;
+    line-height: 48px;
+}
+
+/* Empty Message */
+.empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.empty-message p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #666;
+    text-align: center;
+}

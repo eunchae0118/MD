@@ -1,0 +1,48 @@
+번호	성명	이메일	담당 전공
+1	한광호	realhan88@shinhan.ac.kr	"데이터 기반 자산관리, e스포츠 경영·관리, ICT교육개발협력"
+2	이용우	ywlee@shinhan.ac.kr	클라우드 시스템 융합 보안
+3	변희진	beon@shinhan.ac.kr	"미디어MD 크리에이터, UI/UX콘텐츠디자인"
+4	이효상	hs72@shinhan.ac.kr	한국형 공간정보 실무
+5	조상현	whtkdgus37@shinhan.ac.kr	과학수사
+6	최에스더	ghchoi@shinhan.ac.kr	"디지털 헬스케어 컨설턴트, 디지털 콘텐츠 아카이빙"
+7	김민화	educhild@shinhan.ac.kr	아동기 심리·사회 치유 영상콘텐츠학
+8	조영숙	yscho@shinhan.ac.kr	디지털 창의성과 AI기반 학습설계
+9	이상록	srlee@shinhan.ac.kr	스마트 모빌리티 제어 시스템
+10	심화섭	hssim@shinhan.ac.kr	시스템 반도체
+11	임채환	cwlim@shinhan.ac.kr	AI응용
+12	신종우	attach@shinhan.ac.kr	3D융합 설계제조
+13	방승환	swanbang@shinhan.ac.kr	수소연료전지
+14	최교익	200313@shinhan.ac.kr	실감형 퍼포먼스 콘텐츠 제작 실습
+15	고일권	202224@shinhan.ac.kr	신산업 지식재산 융합
+16	김양훈	kimyh7902@shinhan.ac.kr	"Mili-Tech 드론 SW, Mili-Tech 드론 SW(TC)"
+17	최용수	ciechoi@shinhan.ac.kr	국방로봇(다목적차량) 자율주행 SW
+18	김인아	kimina@shinhan.ac.kr	"빅데이터 기반 미래 보건의료 서비스, 바이오 군헬스케어시스템 SW"
+19	이동규	dglee@shinhan.ac.kr	밀리터리AI 소프트웨어
+20	조혜경	hyekyung310@shinhan.ac.kr	"K-골프리터러시, K-스포츠 문화산업 리터러시"
+21	윤미숙	yoonms@shinhan.ac.kr	디지털 의료 이노베이션
+22	구효진	allohamora2010@shinhan.ac.kr	K-문화콘텐츠산업 경영
+23	홍경옥	tour@shinhan.ac.kr	전시컨벤션경영실무
+24	김지명	kjm@shinhan.ac.kr	스마트 케어푸드
+25	김상현	kbm0821@shinhan.ac.kr	의료영상 분석 및 응용
+26	표상신	pyoss@shinhan.ac.kr	법의학적 기초 및 실무검사
+27	김재범	kjb377@shinhan.ac.kr	AI 융합 콘텐츠
+28	김대근	namu337@shinhan.ac.kr	영상 콘텐츠 제작
+29	김민정	onehari@shinhan.ac.kr	K-Culture 비즈니스
+30	박소정	sjpark@shinhan.ac.kr	스페셜메이크업(특수분장) 디자인
+31	조석연	syeon@shinhan.ac.kr	목공 기술 활용 현악기 제작
+32	정세훈	hun1433@shinhan.ac.kr	아이웨어 디자인 창업 과정
+33	안선정	food@shinhan.ac.kr	"스마트바이오헬스케어, 베이커리/카페 창업"
+34	윤상길	cyrus92@shinhan.ac.kr	문화콘텐츠 마케팅
+35	안이수	whynot@shinhan.ac.kr	병원행정실무
+36	박수근	ski5582@shinhan.ac.kr	동하계 엘리트 스포츠
+37	김현우	khw@shinhan.ac.kr	승마스포츠경영
+38	정태겸	halsee@shinhan.ac.kr	"디지털스포츠 이벤트 에이전트, 스포츠 퍼포먼스 BGM 창작"
+39	류현욱	ryuhw@shinhan.ac.kr	데이터 기반 지식재산 연구개발
+40	조윤재	unij724@naver.com	입법정책 실무 프로젝트
+41	김명식	gotham815@shinhan.ac.kr	"뮤지오그라피 디자인, 의료 공간 디자인"
+42	신유지	meeegon@naver.com	패션브랜딩랩
+43	김종규	jkim@shinhan.ac.kr	기후테크·탄소중립
+44	장호성	haosheng@shinhan.ac.kr	지역 로컬크리에이터
+45	이현종	hjlee@shinhan.ac.kr	지속가능한 지역재생
+46	이선경	oksk3737@shinhan.ac.kr	덴탈테크 비즈니스
+47	김영길	ky3933@shinhan.ac.kr	K-콘텐츠 글로벌 창업

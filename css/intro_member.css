@@ -1,0 +1,95 @@
+/* Member Page Styles */
+
+/* Main Content */
+.member-content {
+    width: 1920px;
+    margin: 0 auto;
+    padding: 100px 320px 150px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 70px;
+    line-height: 48px;
+}
+
+/* Member Grid */
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 623px);
+    gap: 70px 26px;
+    justify-content: center;
+}
+
+/* Member Card */
+.member-card {
+    background: #fff;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    padding: 86px 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 623px;
+    height: 240px;
+    box-sizing: border-box;
+}
+
+/* Member Info */
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.member-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00436b;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.member-position {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Member Contact */
+.member-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 267px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.contact-item span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.45;
+}
+
+.contact-empty span {
+    min-height: 29px;
+}
+

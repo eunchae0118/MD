@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>전공 주임교수 - 신한대학교 마이크로디그리대학</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/intro_style.css">
+  <link rel="stylesheet" href="css/intro_professor.css">
+</head>
+<body>
+  <!-- Header Wrapper -->
+  <div class="header-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="intro-start.html" class="logo">
+            <img src="share/shinhan_logo.png" alt="신한대학교 마이크로디그리대학">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="intro-start.html" class="active">대학소개</a></li>
+            <li><a href="#">학사정보</a></li>
+            <li><a href="curriculum-recommend.html">교육과정</a></li>
+            <li><a href="md-research-member.html">연구센터</a></li>
+            <li><a href="#">커뮤니티</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <button class="icon-btn" aria-label="검색">
+            <img src="share/search.png" alt="검색">
+          </button>
+          <button class="icon-btn" aria-label="언어 선택">
+            <img src="share/global.png" alt="언어">
+          </button>
+          <button class="icon-btn" aria-label="사용자">
+            <img src="share/user.png" alt="사용자">
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Header Dropdown Menu -->
+    <div class="header-dropdown">
+      <div class="header-dropdown-inner">
+        <div class="dropdown-spacer"></div>
+        <div class="dropdown-menus">
+          <div class="dropdown-column">
+            <a href="intro-start.html">마이크로디그리</a>
+            <a href="intro_education.html">교육목표</a>
+            <a href="#">교수소개</a>
+            <a href="intro_location.html">찾아오시는길</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">이수체계</a>
+            <a href="#">학사안내</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="curriculum-recommend.html">추천학과</a>
+            <a href="curriculum-intro.html">교과소개</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="md-research-member.html">MD 연구센터</a>
+            <a href="sw-research-member.html">SW 기초교육 연구센터</a>
+          </div>
+          <div class="dropdown-column">
+            <a href="#">학생</a>
+            <a href="#">교원</a>
+            <a href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="dropdown-right-spacer"></div>
+      </div>
+      <div class="dropdown-dividers">
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="banner-overlay"></div>
+    <h1 class="banner-title">대학소개</h1>
+  </section>
+
+  <!-- Tab Menu (Breadcrumb) -->
+  <div class="tab-menu">
+    <div class="tab-menu-inner">
+      <div class="tab-home">
+        <img src="share/home.png" alt="홈">
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown1">
+        <span>대학소개</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="intro-start.html" class="active">대학소개</a>
+          <a href="#">학사정보</a>
+          <a href="curriculum-recommend.html">교육과정</a>
+          <a href="md-research-member.html">연구센터</a>
+          <a href="#">커뮤니티</a>
+        </div>
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown2">
+        <span>교육목표</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="intro-start.html">마이크로디그리란?</a>
+          <a href="intro_education.html" class="active">교육목표</a>
+          <a href="#">교수소개</a>
+          <a href="intro_location.html">찾아오시는길</a>
+        </div>
+      </div>
+      <div class="tab-item tab-dropdown" id="tabDropdown3">
+        <span>전공 주임교수</span>
+        <img src="share/down.png" alt="선택" class="tab-arrow">
+        <div class="tab-dropdown-menu">
+          <a href="intro_education.html">목표소개</a>
+          <a href="intro_member.html">구성원</a>
+          <a href="intro_professor.html" class="active">전공 주임교수</a>
+          <a href="intro_fulltime.html">전임교수</a>
+          <a href="intro_research.html">연구교수</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <main class="professor-content">
+        <!-- Page Title -->
+        <h2 class="page-title">전공 주임교수</h2>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <select class="search-select" id="searchType">
+                <option value="name">성명(국문)</option>
+                <option value="major">담당 전공</option>
+            </select>
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="검색어를 입력하세요.">
+                <span class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Professor Grid -->
+        <div class="professor-grid" id="professorGrid">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be generated by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Top Button -->
+    <button class="top-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+  <!-- Quick Menu -->
+  <div class="quick-menu" id="quickMenu">
+    <div class="quick-menu-toggle" id="quickMenuToggle">
+      <img src="share/trans.png" alt="Quick menu icon" class="swap-icon">
+      <span class="quick-menu-text">Quick menu</span>
+    </div>
+    <div class="quick-menu-panel" id="quickMenuPanel">
+      <a href="https://www.shinhan.ac.kr" target="_blank">신한대학교</a>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank">종합정보시스템</a>
+      <a href="#">공지사항</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Top Button -->
+  <button class="top-btn" id="topBtn" aria-label="맨 위로">
+    <img src="share/up_white.png" alt="위로 가기">
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <span class="divider"></span>
+          <a href="#">영상정보처리기기관리방침</a>
+          <span class="divider"></span>
+          <a href="#">이메일무단수집거부</a>
+          <span class="divider"></span>
+          <a href="#">찾아오시는 길</a>
+        </div>
+        <div class="footer-select">
+          <select id="relatedSites">
+            <option value="">관련사이트</option>
+            <option value="https://www.shinhan.ac.kr">신한대학교</option>
+            <option value="https://stins.shinhan.ac.kr/irj/portal">종합정보시스템</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-logo">
+          <img src="share/bottom_logo.png" alt="신한대학교" class="footer-logo">
+        </div>
+        <div class="footer-info">
+          <p>[11644] 경기도 의정부시 호암로 95 신한대학교 진리관(중앙도서관) 1070호, 신한대학교 마이크로디그리대학</p>
+          <p>대표전화 : 031-870-3710</p>
+          <p class="copyright">COPYRIGHT 2019. SHINHAN UNIVERSITY. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <div class="search-header">
+        <h2 class="search-title">통합검색</h2>
+        <button class="search-close-btn" id="searchCloseBtn">
+          <img src="share/close.png" alt="닫기">
+        </button>
+      </div>
+      <div class="search-input-wrapper">
+        <input type="text" class="search-input" placeholder="검색어를 입력해주세요">
+        <button class="search-submit-btn">
+          <img src="share/search_blue.png" alt="검색">
+        </button>
+      </div>
+      <div class="search-keywords">
+        <h3 class="search-keywords-title">추천 검색어</h3>
+        <div class="search-tags">
+          <a href="#" class="search-tag"># 졸업요건</a>
+          <a href="curriculum-recommend.html" class="search-tag"># 학과별 추천</a>
+          <a href="curriculum-intro.html" class="search-tag"># 과목 소개</a>
+          <a href="intro-start.html" class="search-tag"># 마이크로디그리란?</a>
+          <a href="#" class="search-tag"># 신청방법</a>
+          <a href="#" class="search-tag"># FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    // 교수 데이터
+    const professors = [
+        { name: "한광호", email: "realhan88@shinhan.ac.kr", major: "데이터 기반 자산관리, e스포츠 경영·관리, ICT교육개발협력" },
+        { name: "이용우", email: "ywlee@shinhan.ac.kr", major: "클라우드 시스템 융합 보안" },
+        { name: "변희진", email: "beon@shinhan.ac.kr", major: "미디어MD 크리에이터, UI/UX콘텐츠디자인" },
+        { name: "이효상", email: "hs72@shinhan.ac.kr", major: "한국형 공간정보 실무" },
+        { name: "조상현", email: "whtkdgus37@shinhan.ac.kr", major: "과학수사" },
+        { name: "최에스더", email: "ghchoi@shinhan.ac.kr", major: "디지털 헬스케어 컨설턴트, 디지털 콘텐츠 아카이빙" },
+        { name: "김민화", email: "educhild@shinhan.ac.kr", major: "아동기 심리·사회 치유 영상콘텐츠학" },
+        { name: "조영숙", email: "yscho@shinhan.ac.kr", major: "디지털 창의성과 AI기반 학습설계" },
+        { name: "이상록", email: "srlee@shinhan.ac.kr", major: "스마트 모빌리티 제어 시스템" },
+        { name: "심화섭", email: "hssim@shinhan.ac.kr", major: "시스템 반도체" },
+        { name: "임채환", email: "cwlim@shinhan.ac.kr", major: "AI응용" },
+        { name: "신종우", email: "attach@shinhan.ac.kr", major: "3D융합 설계제조" },
+        { name: "방승환", email: "swanbang@shinhan.ac.kr", major: "수소연료전지" },
+        { name: "최교익", email: "200313@shinhan.ac.kr", major: "실감형 퍼포먼스 콘텐츠 제작 실습" },
+        { name: "고일권", email: "202224@shinhan.ac.kr", major: "신산업 지식재산 융합" },
+        { name: "김양훈", email: "kimyh7902@shinhan.ac.kr", major: "Mili-Tech 드론 SW, Mili-Tech 드론 SW(TC)" },
+        { name: "최용수", email: "ciechoi@shinhan.ac.kr", major: "국방로봇(다목적차량) 자율주행 SW" },
+        { name: "김인아", email: "kimina@shinhan.ac.kr", major: "빅데이터 기반 미래 보건의료 서비스, 바이오 군헬스케어시스템 SW" },
+        { name: "이동규", email: "dglee@shinhan.ac.kr", major: "밀리터리AI 소프트웨어" },
+        { name: "조혜경", email: "hyekyung310@shinhan.ac.kr", major: "K-골프리터러시, K-스포츠 문화산업 리터러시" },
+        { name: "윤미숙", email: "yoonms@shinhan.ac.kr", major: "디지털 의료 이노베이션" },
+        { name: "구효진", email: "allohamora2010@shinhan.ac.kr", major: "K-문화콘텐츠산업 경영" },
+        { name: "홍경옥", email: "tour@shinhan.ac.kr", major: "전시컨벤션경영실무" },
+        { name: "김지명", email: "kjm@shinhan.ac.kr", major: "스마트 케어푸드" },
+        { name: "김상현", email: "kbm0821@shinhan.ac.kr", major: "의료영상 분석 및 응용" },
+        { name: "표상신", email: "pyoss@shinhan.ac.kr", major: "법의학적 기초 및 실무검사" },
+        { name: "김재범", email: "kjb377@shinhan.ac.kr", major: "AI 융합 콘텐츠" },
+        { name: "김대근", email: "namu337@shinhan.ac.kr", major: "영상 콘텐츠 제작" },
+        { name: "김민정", email: "onehari@shinhan.ac.kr", major: "K-Culture 비즈니스" },
+        { name: "박소정", email: "sjpark@shinhan.ac.kr", major: "스페셜메이크업(특수분장) 디자인" },
+        { name: "조석연", email: "syeon@shinhan.ac.kr", major: "목공 기술 활용 현악기 제작" },
+        { name: "정세훈", email: "hun1433@shinhan.ac.kr", major: "아이웨어 디자인 창업 과정" },
+        { name: "안선정", email: "food@shinhan.ac.kr", major: "스마트바이오헬스케어, 베이커리/카페 창업" },
+        { name: "윤상길", email: "cyrus92@shinhan.ac.kr", major: "문화콘텐츠 마케팅" },
+        { name: "안이수", email: "whynot@shinhan.ac.kr", major: "병원행정실무" },
+        { name: "박수근", email: "ski5582@shinhan.ac.kr", major: "동하계 엘리트 스포츠" },
+        { name: "김현우", email: "khw@shinhan.ac.kr", major: "승마스포츠경영" },
+        { name: "정태겸", email: "halsee@shinhan.ac.kr", major: "디지털스포츠 이벤트 에이전트, 스포츠 퍼포먼스 BGM 창작" },
+        { name: "류현욱", email: "ryuhw@shinhan.ac.kr", major: "데이터 기반 지식재산 연구개발" },
+        { name: "조윤재", email: "unij724@naver.com", major: "입법정책 실무 프로젝트" },
+        { name: "김명식", email: "gotham815@shinhan.ac.kr", major: "뮤지오그라피 디자인, 의료 공간 디자인" },
+        { name: "신유지", email: "meeegon@naver.com", major: "패션브랜딩랩" },
+        { name: "김종규", email: "jkim@shinhan.ac.kr", major: "기후테크·탄소중립" },
+        { name: "장호성", email: "haosheng@shinhan.ac.kr", major: "지역 로컬크리에이터" },
+        { name: "이현종", email: "hjlee@shinhan.ac.kr", major: "지속가능한 지역재생" },
+        { name: "이선경", email: "oksk3737@shinhan.ac.kr", major: "덴탈테크 비즈니스" },
+        { name: "김영길", email: "ky3933@shinhan.ac.kr", major: "K-콘텐츠 글로벌 창업" }
+    ];
+
+    const ITEMS_PER_PAGE = 12;
+    let currentPage = 1;
+    let filteredProfessors = [...professors];
+
+    // 카드 생성 함수
+    function createProfessorCard(professor) {
+        return `
+            <div class="professor-card">
+                <div class="professor-image">
+                    <img src="intro_member_img/${professor.name}.png" alt="${professor.name}">
+                </div>
+                <div class="professor-info">
+                    <h3 class="professor-name">${professor.name}</h3>
+                    <div class="professor-detail">
+                        <img src="intro_member_img/call.png" alt="전화" class="detail-icon">
+                        <span></span>
+                    </div>
+                    <div class="professor-detail">
+                        <img src="intro_member_img/mail.png" alt="이메일" class="detail-icon">
+                        <span>${professor.email}</span>
+                    </div>
+                    <div class="professor-detail research">
+                        <img src="intro_member_img/school.png" alt="담당전공" class="detail-icon">
+                        <span class="research-text">${professor.major}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // 페이지 렌더링 함수
+    function renderPage(page) {
+        const grid = document.getElementById('professorGrid');
+        const start = (page - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const pageItems = filteredProfessors.slice(start, end);
+
+        grid.innerHTML = pageItems.map(prof => createProfessorCard(prof)).join('');
+        currentPage = page;
+        renderPagination();
+    }
+
+    // 페이지네이션 렌더링 함수
+    function renderPagination() {
+        const pagination = document.getElementById('pagination');
+        const totalPages = Math.ceil(filteredProfessors.length / ITEMS_PER_PAGE);
+
+        let html = `
+            <button class="page-btn prev" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="page-numbers">
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<span class="page-num ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</span>`;
+        }
+
+        html += `
+            </div>
+            <button class="page-btn next" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        `;
+
+        pagination.innerHTML = html;
+    }
+
+    // 페이지 이동 함수
+    function goToPage(page) {
+        const totalPages = Math.ceil(filteredProfessors.length / ITEMS_PER_PAGE);
+        if (page < 1 || page > totalPages) return;
+        renderPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 교수 검색 기능 (페이지 내부 검색)
+    // 페이지 내부의 교수 검색 입력 필드만 선택 (헤더 검색 모달과 구분)
+    const professorSearchInput = document.querySelector('.search-container .search-input');
+    const professorSearchIcon = document.querySelector('.search-container .search-icon');
+    const searchType = document.getElementById('searchType');
+
+    function filterProfessors() {
+        const searchTerm = professorSearchInput.value.toLowerCase();
+        const type = searchType.value;
+        
+        if (searchTerm === '') {
+            filteredProfessors = [...professors];
+        } else if (type === 'name') {
+            filteredProfessors = professors.filter(prof => 
+                prof.name.toLowerCase().includes(searchTerm)
+            );
+        } else {
+            filteredProfessors = professors.filter(prof => 
+                prof.major.toLowerCase().includes(searchTerm)
+            );
+        }
+        renderPage(1);
+    }
+
+    if (professorSearchIcon) {
+        professorSearchIcon.addEventListener('click', filterProfessors);
+    }
+    if (professorSearchInput) {
+        professorSearchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                filterProfessors();
+            }
+        });
+    }
+
+    // Tab Dropdown
+    const tabDropdowns = document.querySelectorAll('.tab-dropdown');
+    tabDropdowns.forEach(dropdown => {
+      const tabItem = dropdown;
+      const menu = dropdown.querySelector('.tab-dropdown-menu');
+      
+      tabItem.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // Close other dropdowns
+        tabDropdowns.forEach(other => {
+          if (other !== dropdown) {
+            other.classList.remove('open');
+          }
+        });
+        // Toggle current dropdown
+        dropdown.classList.toggle('open');
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.tab-dropdown')) {
+        tabDropdowns.forEach(dropdown => {
+          dropdown.classList.remove('open');
+        });
+      }
+    });
+
+    // Quick Menu
+    const quickMenu = document.getElementById('quickMenu');
+    const quickMenuToggle = document.getElementById('quickMenuToggle');
+    
+    if (quickMenuToggle) {
+      quickMenuToggle.addEventListener('click', function() {
+        quickMenu.classList.toggle('open');
+      });
+    }
+
+    // Search Modal
+    const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
+    const searchModal = document.getElementById('searchModal');
+    const searchCloseBtn = document.getElementById('searchCloseBtn');
+    // 검색 모달 내부의 입력 필드만 선택 (교수 검색과 구분)
+    const searchInput = searchModal ? searchModal.querySelector('.search-input') : null;
+    
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function() {
+        searchModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          if (searchInput) searchInput.focus();
+        }, 100);
+      });
+    }
+    
+    if (searchCloseBtn) {
+      searchCloseBtn.addEventListener('click', function() {
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    if (searchModal) {
+      searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+          searchModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Top Button
+    const topBtn = document.getElementById('topBtn');
+    
+    if (topBtn) {
+      topBtn.addEventListener('click', function() {
+        topBtn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(function() {
+          topBtn.classList.remove('active');
+        }, 500);
+      });
+    }
+
+    // 드롭다운 열 위치를 헤더 메뉴에 맞춤
+    function alignDropdownToNav() {
+      const navItems = document.querySelectorAll('.nav-list li');
+      const dropdownColumns = document.querySelectorAll('.dropdown-column');
+      const dropdownDividers = document.querySelectorAll('.dropdown-divider');
+      
+      // 먼저 모든 transform 리셋
+      dropdownColumns.forEach(column => {
+        column.style.transform = 'none';
+      });
+      
+      // 리플로우 강제 (브라우저가 위치를 다시 계산하도록)
+      void document.body.offsetHeight;
+      
+      // 각 열의 위치 조정
+      navItems.forEach((navItem, index) => {
+        if (dropdownColumns[index]) {
+          const navRect = navItem.getBoundingClientRect();
+          const navCenter = navRect.left + navRect.width / 2;
+          
+          const column = dropdownColumns[index];
+          const columnRect = column.getBoundingClientRect();
+          const columnCenter = columnRect.left + columnRect.width / 2;
+          
+          const offset = navCenter - columnCenter;
+          column.style.transform = 'translateX(' + offset + 'px)';
+        }
+      });
+      
+      // 구분선 위치 설정 (헤더 메뉴 사이의 정확한 중간)
+      for (let i = 0; i < dropdownDividers.length; i++) {
+        const currentNav = navItems[i];
+        const nextNav = navItems[i + 1];
+        
+        if (currentNav && nextNav) {
+          const currentRect = currentNav.getBoundingClientRect();
+          const nextRect = nextNav.getBoundingClientRect();
+          
+          // 현재 메뉴의 오른쪽 끝과 다음 메뉴의 왼쪽 시작의 중간
+          const dividerX = (currentRect.right + nextRect.left) / 2;
+          
+          dropdownDividers[i].style.left = dividerX + 'px';
+        }
+      }
+    }
+    
+    // 페이지 로드 시 정렬
+    window.addEventListener('load', alignDropdownToNav);
+    
+    // 리사이즈 시 디바운스 적용하여 정렬
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(alignDropdownToNav, 100);
+    });
+    
+    // Header Dropdown Hover
+    const navListItems = document.querySelectorAll('.nav-list li');
+    const dropdownColumns = document.querySelectorAll('.dropdown-column');
+    
+    dropdownColumns.forEach((column, index) => {
+      column.addEventListener('mouseenter', function() {
+        if (navListItems[index]) navListItems[index].classList.add('dropdown-hover');
+      });
+      column.addEventListener('mouseleave', function() {
+        if (navListItems[index]) navListItems[index].classList.remove('dropdown-hover');
+      });
+    });
+
+    // 초기 렌더링
+    renderPage(1);
+</script>
+</body>
+</html>

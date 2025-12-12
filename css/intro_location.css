@@ -1,0 +1,387 @@
+/* Location Page Styles */
+
+/* Main Content */
+.location-content {
+    width: 1920px;
+    margin: 0 auto;
+    padding: 100px 0 0;
+}
+
+/* Map Section */
+.map-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.map-container {
+    width: 1280px;
+    height: 744px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-icon {
+    width: 14px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Address Section */
+.address-section {
+    padding: 70px 320px 0;
+    margin-bottom: 0;
+}
+
+.address-info {
+    padding-left: 33px;
+}
+
+.address-info ul {
+    list-style: disc;
+    padding: 0;
+    margin: 0;
+    list-style-position: outside;
+}
+
+.address-info li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+/* Subway Section */
+.subway-section {
+    padding: 70px 320px 0;
+    margin-bottom: 0;
+}
+
+.subway-info {
+    padding-left: 33px;
+}
+
+.subway-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.subway-icon {
+    width: 27px;
+    height: 29px;
+    object-fit: contain;
+}
+
+.subway-item span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.45;
+}
+
+/* Bus Section */
+.bus-section {
+    padding: 70px 320px 0;
+    margin-bottom: 0;
+}
+
+.bus-table {
+    border: 0.5px solid #B0B0B0;
+    width: 1280px;
+    height: 600px;
+    position: relative;
+}
+
+.bus-category {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 1280px;
+    border-bottom: 0.5px solid #B0B0B0;
+}
+
+.bus-category:last-child {
+    border-bottom: none;
+}
+
+.category-header {
+    width: 226px;
+    background: #1A77C9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.bus-category.village-bus {
+    height: 120px;
+}
+
+.bus-category.village-bus .category-header {
+    height: 120px;
+}
+
+.bus-category.city-bus {
+    height: 300px;
+}
+
+.bus-category.city-bus .category-header {
+    background: #176BB5;
+    height: 300px;
+    align-self: stretch;
+}
+
+.bus-category.seat-bus {
+    height: 120px;
+}
+
+.bus-category.seat-bus .category-header {
+    background: #1A77C9;
+    height: 120px;
+}
+
+.bus-category.seoul-bus {
+    height: 60px;
+}
+
+.bus-category.seoul-bus .category-header {
+    background: #176BB5;
+    height: 60px;
+}
+
+.bus-items {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.bus-row {
+    display: flex;
+}
+
+.bus-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    min-height: 60px;
+}
+
+.bus-item:first-child {
+    width: 500px;
+}
+
+.bus-item:nth-child(2) {
+    width: 552px;
+}
+
+.bus-number {
+    width: 120px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1DC1B6;
+    padding-left: 30px;
+    flex-shrink: 0;
+    line-height: 1.45;
+    display: flex;
+    align-items: center;
+}
+
+.bus-route {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 1.45;
+    display: flex;
+    align-items: center;
+}
+
+/* Car Section */
+.car-section {
+    padding: 70px 320px 150px;
+    margin-bottom: 0;
+}
+
+.car-info {
+    padding-left: 33px;
+}
+
+.navigation-search {
+    margin-bottom: 20px;
+}
+
+.navigation-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.navigation-text strong {
+    font-weight: 700;
+}
+
+.highlight {
+    color: #1DC1B6;
+    font-weight: 700;
+}
+
+.parking-info {
+    margin-bottom: 30px;
+}
+
+.parking-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.parking-text strong {
+    font-weight: 700;
+}
+
+.car-details {
+    margin-top: 20px;
+}
+
+.car-summary {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1DC1B6;
+    cursor: pointer;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.car-summary::-webkit-details-marker {
+    display: none;
+}
+
+.car-summary::marker {
+    display: none;
+}
+
+.car-details-content {
+    padding: 15px 0;
+}
+
+.car-route-item {
+    margin-bottom: 20px;
+}
+
+.car-route-item:last-child {
+    margin-bottom: 0;
+}
+
+.car-route-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A77C9;
+    margin: 0 0 10px 0;
+    line-height: 1.45;
+}
+
+.car-route-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    line-height: 1.45;
+    padding-left: 30px;
+    word-break: keep-all;
+}
+
+.car-route-subitem {
+    margin-bottom: 15px;
+}
+
+.car-route-subitem:last-child {
+    margin-bottom: 0;
+}
+
+.car-route-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1DC1B6;
+    margin: 0 0 8px 0;
+    line-height: 1.45;
+    padding-left: 15px;
+}
+
+.car-direction {
+    margin-bottom: 40px;
+}
+
+.car-direction:last-child {
+    margin-bottom: 0;
+}
+
+.direction-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 10px 0;
+    line-height: 1.45;
+}
+
+.direction-content {
+    margin-bottom: 20px;
+}
+
+.direction-content:last-child {
+    margin-bottom: 0;
+}
+
+.direction-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1DC1B6;
+    margin: 0 0 10px 0;
+    line-height: 1.45;
+}
+
+.direction-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    line-height: 1.45;
+    padding-left: 15px;
+    word-break: keep-all;
+}

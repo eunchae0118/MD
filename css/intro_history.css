@@ -1,0 +1,137 @@
+/* History Page Styles */
+
+/* History Content */
+.history-content {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 100px 320px 150px;
+}
+
+/* History Header */
+.history-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.history-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.35;
+    margin-bottom: 30px;
+}
+
+.history-subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.45;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 250px;
+}
+
+/* Timeline Year Section */
+.timeline-year {
+    position: relative;
+    display: flex;
+    padding-bottom: 35px;
+}
+
+.timeline-year:last-child {
+    padding-bottom: 0;
+}
+
+/* Year Label */
+.year-label {
+    position: absolute;
+    left: -250px;
+    top: 0;
+    width: 109px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1DC1B6;
+    line-height: 49px;
+}
+
+/* Year Marker */
+.year-marker {
+    position: absolute;
+    left: -80px;
+    top: 12px;
+    width: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-circle {
+    width: 23px;
+    height: 23px;
+    border: 5px solid #1DC1B6;
+    border-radius: 50%;
+    background: #fff;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.marker-line {
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: #1DC1B6;
+}
+
+/* 2024년 - 13개 항목 (13 * 49px + 35px padding) */
+.timeline-year:nth-child(1) .marker-line {
+    height: 672px;
+}
+
+/* 2023년 - 21개 항목 (21 * 49px + 35px padding) */
+.timeline-year:nth-child(2) .marker-line {
+    height: 1064px;
+}
+
+/* 2022년 - 29개 항목 */
+.timeline-year:nth-child(3) .marker-line {
+    height: 1416px;
+}
+
+/* Year Events */
+.year-events {
+    flex: 1;
+    padding-left: 0;
+}
+
+/* Event Item */
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 49px;
+}
+
+.event-date {
+    width: 115px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+    flex-shrink: 0;
+    line-height: 1.45;
+}
+
+.event-text {
+    flex: 1;
+    font-size: 22px;
+    font-weight: 400;
+    color: #696969;
+    line-height: 1.45;
+}
+
