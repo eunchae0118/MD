@@ -48,9 +48,9 @@
         <div class="dropdown-menus">
           <div class="dropdown-column">
             <a href="intro-start.html">마이크로디그리</a>
-            <a href="#">교육목표</a>
-            <a href="#">교수소개</a>
-            <a href="#">찾아오시는길</a>
+            <a href="intro_education.html">교육목표</a>
+            <a href="intro_professor.html">교수소개</a>
+            <a href="intro_location.html">찾아오는길</a>
           </div>
           <div class="dropdown-column">
             <a href="#">이수체계</a>
@@ -58,7 +58,7 @@
           </div>
           <div class="dropdown-column">
             <a href="curriculum-recommend.html">추천학과</a>
-            <a href="curriculum-future.html">교과소개</a>
+            <a href="curriculum-intro.html">교과소개</a>
           </div>
           <div class="dropdown-column">
             <a href="md-research-member.html">MD 연구센터</a>
@@ -184,7 +184,7 @@
           <span class="divider"></span>
           <a href="#">이메일무단수집거부</a>
           <span class="divider"></span>
-          <a href="#">찾아오시는 길</a>
+          <a href="intro_location.html">찾아오시는 길</a>
         </div>
         <div class="footer-select">
           <select id="relatedSites">
@@ -216,8 +216,8 @@
       <span class="quick-menu-text">Quick menu</span>
     </div>
     <div class="quick-menu-panel" id="quickMenuPanel">
-      <a href="#">신한대학교</a>
-      <a href="#">종합정보시스템</a>
+      <a href="https://www.shinhan.ac.kr" target="_blank">신한대학교</a>
+      <a href="https://stins.shinhan.ac.kr/irj/portal" target="_blank">종합정보시스템</a>
       <a href="#">공지사항</a>
       <a href="#">FAQ</a>
     </div>
@@ -281,12 +281,64 @@
     const searchBtn = document.querySelector('.icon-btn[aria-label="검색"]');
     const searchModal = document.getElementById('searchModal');
     const searchCloseBtn = document.getElementById('searchCloseBtn');
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = searchModal ? searchModal.querySelector('.search-input') : null;
+    const searchSubmitBtn = searchModal ? searchModal.querySelector('.search-submit-btn') : null;
+    
+    // 검색 기능
+    function performSearch(query) {
+      if (!query || query.trim() === '') return;
+      
+      const searchTerm = query.toLowerCase().trim();
+      let targetPage = null;
+      
+      // 검색어 매칭
+      if (searchTerm.includes('마이크로디그리') || searchTerm.includes('마이크로')) {
+        targetPage = 'intro-start.html';
+      } else if (searchTerm.includes('교육목표') || searchTerm.includes('목표')) {
+        targetPage = 'intro_education.html';
+      } else if (searchTerm.includes('구성원')) {
+        targetPage = 'intro_member.html';
+      } else if (searchTerm.includes('주임교수') || searchTerm.includes('전공 주임')) {
+        targetPage = 'intro_professor.html';
+      } else if (searchTerm.includes('전임교수') || searchTerm.includes('전임')) {
+        targetPage = 'intro_fulltime.html';
+      } else if (searchTerm.includes('연구교수') || searchTerm.includes('연구')) {
+        targetPage = 'intro_research.html';
+      } else if (searchTerm.includes('교수')) {
+        targetPage = 'intro_professor.html';
+      } else if (searchTerm.includes('인사말')) {
+        targetPage = 'intro_greeting.html';
+      } else if (searchTerm.includes('홍보영상') || searchTerm.includes('영상')) {
+        targetPage = 'intro_video.html';
+      } else if (searchTerm.includes('연혁')) {
+        targetPage = 'intro_history.html';
+      } else if (searchTerm.includes('찾아오는길') || searchTerm.includes('찾아오시는길') || searchTerm.includes('위치') || searchTerm.includes('오시는길')) {
+        targetPage = 'intro_location.html';
+      } else if (searchTerm.includes('학과') || searchTerm.includes('추천')) {
+        targetPage = 'curriculum-recommend.html';
+      } else if (searchTerm.includes('교과') || searchTerm.includes('과목')) {
+        targetPage = 'curriculum-intro.html';
+      } else if (searchTerm.includes('md 연구센터') || searchTerm.includes('md연구센터')) {
+        targetPage = 'md-research-member.html';
+      } else if (searchTerm.includes('sw 연구센터') || searchTerm.includes('sw연구센터')) {
+        targetPage = 'sw-research-member.html';
+      } else if (searchTerm.includes('연구센터')) {
+        targetPage = 'md-research-member.html';
+      }
+      
+      if (targetPage) {
+        window.location.href = targetPage;
+      } else {
+        alert('검색 결과를 찾을 수 없습니다. 다른 검색어를 입력해주세요.');
+      }
+    }
     
     searchBtn.addEventListener('click', function() {
       searchModal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      setTimeout(() => searchInput.focus(), 100);
+      setTimeout(() => {
+        if (searchInput) searchInput.focus();
+      }, 100);
     });
     
     searchCloseBtn.addEventListener('click', function() {
@@ -300,6 +352,22 @@
         document.body.style.overflow = '';
       }
     });
+    
+    // 검색 버튼 클릭 이벤트
+    if (searchSubmitBtn && searchInput) {
+      searchSubmitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        performSearch(searchInput.value);
+      });
+      
+      // Enter 키 이벤트
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch(searchInput.value);
+        }
+      });
+    }
 
     // 드롭다운 열 위치를 헤더 메뉴에 맞춤
     function alignDropdownToNav() {

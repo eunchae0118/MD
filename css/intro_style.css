@@ -294,7 +294,7 @@ button {
 .banner {
     position: relative;
     height: 300px;
-    background-image: url('../imges/com_img/mask.png');
+    background-image: url('../intro_start/mask.png');
     background-size: cover;
     background-position: center;
     display: flex;
